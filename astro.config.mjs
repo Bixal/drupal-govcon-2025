@@ -7,6 +7,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Branching Out: Design Systems",
+      customCss: ["./src/styles/custom.css"],
       sidebar: [
         {
           label: "Guides",

@@ -3,6 +3,6 @@
 pre-commit:
   commands:
     check:
-      glob: "**/*.md"
+      glob: "**/*.{css,md}"
       run: npm run format:fix {staged_files}
       stage_fixed: true
