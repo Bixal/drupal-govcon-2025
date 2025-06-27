@@ -23,15 +23,15 @@ export default defineConfig({
             },
             {
               label: "Create your own design language",
-              slug: "",
+              slug: "guides/04-design-language",
             },
             {
               label: "Creating components",
-              slug: "",
+              slug: "guides/05-creating-components",
             },
             {
               label: "Documentation and governance",
-              slug: "",
+              slug: "guides/06-governance",
             },
           ],
         },
