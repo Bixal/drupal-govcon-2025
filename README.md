@@ -45,6 +45,20 @@ feature/dg2025-20-font-size
 
 ## Updating Content
 
+### Referencing sites
+
+When referencing sites for further reading, use the following format:
+
+```
+{TITLE} | {DOMAIN}
+```
+
+**Example**
+
+```
+[Design Principles | USWDS](https://designsystem.digital.gov/design-principles/)
+```
+
 ### Navigation
 
 To update the Guide sidebar navigation go to:

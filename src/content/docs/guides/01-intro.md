@@ -3,54 +3,77 @@ title: Introduction
 description: Design systems, a thousand foot view.
 ---
 
-At a high level a design system is a collection of principles, code, guidance, and community. It's a living product that helps teams build websites and apps faster, ensure a baseline of quality, share knowledge, offer help.
+At a high level, a design system is a collection of principles, code, and guidance. It's a living product that helps teams build products faster, ensures a baseline of quality, and share knowledge.
 
-Design systems help teams focus on important problems specific to their team and their user's needs, rather than figuring out how to reinvent a mobile menu or an accordion.
-
-## What a design system is
+## What a Design System Is
 
 Design systems come in different shapes and sizes, but they all essentially contain the following:
 
-- **Principles**. The "why" in this entire effort. It's your north star for your roadmap and all future decisions.
-- **Guidance**. What it is and when/how to use the design system.
-- **Tokens, Components, and Patterns**. Something you can use to build _some thing_.
-- **A design library or kit**. For designers to adopt and use to create without needing to compile code.
-- **A community** (eventually). Where you'll support and others can contribute ideas, research, code, and guidance. This is where you'll also support other teams and grow your design system.
+- **Principles**. The "why" behind the entire effort. It's your north star for your roadmap and all future decisions.
+- **Guidance**. What this is, when, and how to use it.
+- **Tokens/Components/Patterns**. Something you can use to build a product.
+- **A Design Kit**. For non-technical folks to create without touching code.
+- **Community** (_eventually_). Where you'll provide support and people can contribute back. This is an important part of growing your design system.
 
-You can grow your design system organically and start where your strengths lie, like a style guide, component library, or a design file. But if you want to evolve to a design system, you need to prioritize the other items before launch. Even if they're just basic implementations.
+You can grow your design system organically. Start with your strengths; this can be a style guide, component library, or a design file to ensure consistency.
 
-## What a design system _isn't_
+To evolve into a full design system, you'll need a combination of principles, guidance, and assets, like a design file or code patterns. Even basic implementations are helpful.
 
-- **A collection of colors and fonts.** That's a styleguide and while it is important for maintaining consistency, it serves as more of a theming layer.
-- **A design file.** This can be a good starting point, but a design system is a sum of parts. It's the same issue as if you only shipped code. No one outside of devs would be able to see or use it.
-- **Component libraries**. While useful and ensure some form of consistency, there's no guidance on when or when _not_ to use components.
+## What a Design System _Isn't_
 
-## Systems-level thinking
+- **A collection of colors and fonts.** A style guide is important for maintaining consistency, but it's more of a theming layer.
+- **A design file.** It can be a good starting point, but a design system is a sum of its parts. It's like only shipping code alone; it won't be visible or usable to anyone else.
+- **A Component library**. While useful for consistency, there's no guidance on when or when _not_ to use components. Plus, you need technical knowledge to use it.
 
-Since a design system is a collection of parts, to be successful you'll need systems-level thinking. This means that with your work you'll have to think about how all of the pieces are connected.
+## Value of a Design System
 
-TK
+Design systems help teams focus on important problems specific to their team and user's needs. They help us easily create cohesive UIs and avoid reinventing the wheel by creating common UI components like mobile menus, accordions, or other similar elements.
 
-## Aligning goals
+## Aligning Goals
 
-Aligning design system goals to company/agency and audience.
-
-## Value of a design system
-
-TK
-
-## Layers of a design system
-
-TK
-
-## Pace of a design system
-
-TK
+You'll need _some_ alignment with your agency or company goals. This is what will show value, get buy-in, and why it's worth investing.
 
 ## Principles
 
-TK
+Principles are the north star for your design system. They help you outline: how you do things, what to focus on, and drive your roadmap.
 
-## Further reading
+## Systems-Level Thinking
 
-TK
+A design system is a collection of interconnected parts. Having a systems-level mindset means thinking about how all the pieces work together to succeed and scale.
+
+Some considerations when working on features:
+
+1. **Guidance and Documentation**
+   - Why do we need this? What problem does it solve?
+   - When should this be used or _not_ used?
+   - Where does that guidance need to go?
+   - Are there any accessibility considerations?
+1. **Understanding Relationships**
+   - Is there another feature that's similar or is this completely new?
+   - How does this feature interact with others?
+   - What are the ripple effects of this change?
+   - How does this affect performance or security?
+   - What's the impact to users?
+1. **Building to Scale**
+   - What code can I reuse to build this?
+   - How can I build it to scale in the future?
+   - How can I make this as easy as possible to implement and update?
+   - What are "good" defaults for customization?
+   - What tests do I need?
+1. **Measuring Success**
+   - What does the before/after look like?
+   - What's the impact to the codebase?
+
+It's easy to feel overwhelmed when you're starting out. Don't let perfection paralyze you. Work iteratively and make it easy for your features to evolve. This way, you'll be able to adapt to real-world needs.
+
+## Layers of a Design System
+
+Think of your design system as infrastructure for your products. It will be the foundation for the tone, aesthetic, and functionality. Everything else goes on top.
+
+_Graphic of layers: Design system, User Research, Brand, Tone, Products._
+
+You can iterate and experiment as fast as you'd like, but changes to the core of the design system should be intentional and well thought out before they're fully adopted.
+
+## Further Reading
+
+- [Ship Faster by Building Design Systems Slower | Big Medium](https://bigmedium.com/ideas/design-system-pace-layers-slow-fast.html)
