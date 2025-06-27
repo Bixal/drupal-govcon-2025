@@ -1,0 +1,14 @@
+@layer starlight, theme;
+
+@layer theme {
+  :root {
+    --sl-text-xs: var(--sl-text-sm);
+    --sl-text-body: var(--sl-text-lg);
+    --sl-text-body-sm: var(--sl-text-base);
+    --sl-text-code-sm: var(--sl-text-base);
+  }
+
+  body {
+    font-size: var(--sl-text-body);
+  }
+}

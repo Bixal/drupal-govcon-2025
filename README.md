@@ -27,7 +27,23 @@ Images can be added to `src/assets/` and embedded in Markdown with a relative li
 
 Static assets, like favicons, can be placed in the `public/` directory.
 
-## Updating content
+## Working with Git
+
+### Naming Branches
+
+Use the project prefix, the GitHub issue number, and a brief summary of the changes.
+
+```
+feature/dg2025-{ISSUE_NO}-{BRIEF_DESCRIPTION}
+```
+
+**Example**
+
+```
+feature/dg2025-20-font-size
+```
+
+## Updating Content
 
 ### Navigation
 
@@ -42,8 +58,8 @@ All commands are run from the root of the project, from a terminal:
 | :--------------------------- | :----------------------------------------------- |
 | `npm install`                | Installs dependencies                            |
 | `npm run dev` or `npm start` | Starts local dev server at `localhost:4321`      |
-| `npm run format:check`       | Checks markdown formatting                       |
-| `npm run format:fix`         | Fixes markdown formatting issues                 |
+| `npm run format:check`       | Checks code formatting                           |
+| `npm run format:fix`         | Fixes code formatting issues                     |
 | `npm run build`              | Build your production site to `./dist/`          |
 | `npm run preview`            | Preview your build locally, before deploying     |
 | `npm run astro ...`          | Run CLI commands like `astro add`, `astro check` |
