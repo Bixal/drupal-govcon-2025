@@ -10,6 +10,7 @@ Design systems help teams focus on important problems specific to their team and
 ## What a design system is
 
 Design systems come in different shapes and sizes, but they all essentially contain the following:
+
 - **Principles**. The "why" in this entire effort. It's your north star for your roadmap and all future decisions.
 - **Guidance**. What it is and when/how to use the design system.
 - **Tokens, Components, and Patterns**. Something you can use to build _some thing_.
@@ -22,14 +23,13 @@ You can grow your design system organically and start where your strengths lie, 
 
 - **A collection of colors and fonts.** That's a styleguide and while it is important for maintaining consistency, it serves as more of a theming layer.
 - **A design file.** This can be a good starting point, but a design system is a sum of parts. It's the same issue as if you only shipped code. No one outside of devs would be able to see or use it.
-- **Component libraries**.  While useful and ensure some form of consistency, there's no guidance on when or when _not_ to use components.
+- **Component libraries**. While useful and ensure some form of consistency, there's no guidance on when or when _not_ to use components.
 
 ## Systems-level thinking
 
 Since a design system is a collection of parts, to be successful you'll need systems-level thinking. This means that with your work you'll have to think about how all of the pieces are connected.
 
 TK
-
 
 ## Aligning goals
 

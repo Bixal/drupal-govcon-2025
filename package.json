@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "format:check": "npx prettier ./**/*.md --check",
+    "format:fix": "npx prettier ./**/*.md --write",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
