@@ -1,0 +1,8 @@
+# https://lefthook.dev/configuration/
+
+pre-commit:
+  commands:
+    check:
+      glob: "**/*.md"
+      run: npm run format:fix {staged_files}
+      stage_fixed: true
