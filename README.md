@@ -27,7 +27,23 @@ Images can be added to `src/assets/` and embedded in Markdown with a relative li
 
 Static assets, like favicons, can be placed in the `public/` directory.
 
-## Updating content
+## Working with Git
+
+### Naming Branches
+
+Use the project prefix, the GitHub issue number, and a brief summary of the changes.
+
+```
+feature/dg2025-{ISSUE_NO}-{BRIEF_DESCRIPTION}
+```
+
+**Example**
+
+```
+feature/dg2025-20-font-size
+```
+
+## Updating Content
 
 ### Navigation
 
