@@ -11,4 +11,10 @@
   body {
     font-size: var(--sl-text-body);
   }
+
+  .inline-icon {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-block-end: 0.3ex; /* Optically center. */
+  }
 }

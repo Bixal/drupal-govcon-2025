@@ -45,6 +45,10 @@ feature/dg2025-20-font-size
 
 ## Updating Content
 
+### Illustrations
+
+Illustrations are from <https://undraw.co/illustrations>, using Bixal Blue `#152D6B`.
+
 ### Referencing sites
 
 When referencing sites for further reading, use the following format:
@@ -63,6 +67,20 @@ When referencing sites for further reading, use the following format:
 
 To update the Guide sidebar navigation go to:
 `astro.config.mjs`
+
+### Theming docs
+
+Starlight comes with these customizable theming props, they're listed in [props.css | GitHub](https://github.com/withastro/starlight/blob/main/packages/starlight/style/props.css).
+
+**Example**
+
+Here's how you can apply them to components:
+
+```mdx
+{/* 02-uswds-foundation.mdx */}
+
+<Icon name="approve-check" color="var(--sl-color-green)" class="inline-icon" />
+```
 
 ## Commands
 
