@@ -45,6 +45,10 @@ feature/dg2025-20-font-size
 
 ## Updating Content
 
+### Illustrations
+
+Illustrations are from <https://undraw.co/illustrations>, using Bixal Blue `#152D6B`.
+
 ### Navigation
 
 To update the Guide sidebar navigation go to:
