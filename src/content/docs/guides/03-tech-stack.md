@@ -60,7 +60,7 @@ Ensure robust testing to maintain quality and reliability.
 
 Make sure that frontend development follows the design language using Sass variables or CSS custom properties.
 
-If you need to support many different platforms, consider [**Style Dictionary**](https://styledictionary.com/). It helps you use your tokens in iOS, Android, and other more.
+If you need to support many different platforms, consider [**Style Dictionary**](https://styledictionary.com/). It helps you use your tokens in iOS, Android, and more.
 
 
 ### Documentation
