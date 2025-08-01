@@ -1,5 +1,5 @@
 ---
-title: Your design language
+title: Your Design Language
 description: A guide to building a consistent and flexible design language for your apps using USWDS and SASS.
 ---
 
@@ -27,7 +27,7 @@ Keep your base theme simple and neutral, with just enough branding to set a foun
 
 USWDS comes with a default theme that you've probably seen many times.
 
-![The USWDS landing page using the default blue and gray theme colors](/src/assets/uswds-landing-2025-07-30@2x.webp)
+![The USWDS landing page using the default blue and gray theme colors](../../../assets/uswds-landing-2025-07-30@2x.webp)
 
 By default, the primary color is `blue-60v` (`#005ea2`), the main body font is Source Sans Pro, and the headings are Merriweather Web.
 
@@ -109,7 +109,7 @@ Then you'd import it into your main SASS entrypoint.
 
 And your landing page should now use the Public Sans typeface and have a light gray and indigo based color scheme.
 
-![The USWDS landing page now in light gray and an indigo based color scheme](/src/assets/uswds-landing-base-theme@2x.webp)
+![The USWDS landing page now in light gray and an indigo based color scheme](../../../assets/uswds-landing-base-theme@2x.webp)
 
 This is fine for a single one-off theme. Now fast forward a few months and now you're asked to extend that original custom theme for three smaller related products. If you wanted to re-use it you'd have to:
 
@@ -203,6 +203,6 @@ Luckily, SASS's new module system allows you to easily override and use that as 
 
     This method creates a new theme by layering your previous overrides with any new changes. It makes it fast and easy to manage multiple themes that look similar but have their own custom details.
 
-    ![The USWDS landing page extended from previous scheme, but using violet as the primary color](/src/assets/uswds-landing-extended-theme@2x.webp)
+    ![The USWDS landing page extended from previous scheme, but using violet as the primary color](../../../assets/uswds-landing-extended-theme@2x.webp)
 
 </Steps>
