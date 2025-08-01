@@ -23,7 +23,7 @@ export default defineConfig({
               slug: "guides/03-tech-stack",
             },
             {
-              label: "Create your own design language",
+              label: "Your design language",
               slug: "guides/04-design-language",
             },
             {
