@@ -43,6 +43,20 @@ feature/dg2025-{ISSUE_NO}-{BRIEF_DESCRIPTION}
 feature/dg2025-20-font-size
 ```
 
+## Reviewing Pull Requests
+
+There aren't strict requirements or anything process related, but you might see PR comments like:
+
+```md
+**suggestion**: Consider a visual for plain language. Suggestions are non-blocking.
+
+**issue**: This change seems to have affected deploys.
+
+**issue (non-blocking)**: I found a separate issue while reviewing, let's fix on follow-up.
+```
+
+These follow [conventional comment](https://conventionalcomments.org/) guidelines. They help make PR comments clearer and show what comments are blocking and which aren't.
+
 ## Updating Content
 
 ### Illustrations
