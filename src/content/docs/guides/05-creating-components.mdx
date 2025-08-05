@@ -1,0 +1,136 @@
+---
+title: Creating Components
+description: The work involved in creating a component.
+---
+
+import { Card, Steps } from "@astrojs/starlight/components";
+
+Knowing how a UI component evolves is key to creating a design system that lasts. This guide walks you through every step from idea to implementation. By following it, you'll be able to build well-structured components that serve your users and keep your design system healthy and usable over time.
+
+## Component Lifecycle Phases
+<Steps>
+1. [Discovery](#1-discovery)
+2. [Design](#2-design)
+3. [Development](#3-development)
+4. [Documentation](#4-documentation)
+5. [Release](#5-release)
+6. [Maintenance](#6-maintenance)
+</Steps>
+
+### 1. Discovery
+
+#### Research and Why It's Important
+
+Research is a critical step in ensuring that your components meet the user's needs and are aligned with business goals.
+
+- **Landscape Analysis**: Look at existing solutions to understand best practices and spot gaps. Analyzing competitors helps you save time and resources and guiding more informed decisions. This is especially important when working with a new tool or tech stack.
+- **Accessibility Analysis**: Look for any potential accessibility issues that might make your component hard to use. Check the relevant WCAG criteria to make sure everyone can use your components.
+- **User Testing**: Conduct usability tests to understand user needs and behaviors, including participants with disabilities. This helps in designing components that are intuitive and user-friendly.
+- **Gather Feedback**: Gather feedback from stakeholders and end-users to guide component decisions and validate success.
+- **Document Findings**: Record and document the findings from your research to guide future design decisions and improvements.
+
+#### Evaluation to move forward
+
+At this point a decision needs to be made to whether you really need a new component or an existing component can be updated to meet the needs identified in the research phase. Summarize your research and clearly explain the decision in a short document.
+
+### 2. Design
+
+#### Progressive Design Modeling
+
+Use principles from a progressive design modeling approach when developing components, where the fidelity or resolution of design deliverables increases as the task progresses (rough sketches → wireframes → prototypes → final product). This will allow smaller assessments from other team members and stakeholders, and will help to ensure that the design is on track before moving to the next phase.
+
+- **Initial Sketches and Wireframes**: Start with low-fidelity sketches and wireframes to conceptually outline the component.
+- **Mid-Fidelity Prototypes**: Progress to mid-fidelity prototypes to explore interaction and user flow.
+- **High-Fidelity Deliverables**: Finalize high-fidelity designs that align with your design system's tokens, patterns, and utilities.
+
+<Card title="Prototyping: Where and How" icon="seti:smarty">
+As you can imagine, at this stage the lines between design and development get blurry. Engineers can start on functional prototypes as soon as wireframes are validated. This is essential for progressively testing and iterating on the development based on feedback.
+  - **Tools**: Use tools like Figma or Storybook to create interactive prototypes.
+  - **Testing**: Share prototypes with stakeholders and users for feedback.
+  - **Iterate**: Use feedback to iterate on the design and functionality of the component.
+
+</Card>
+
+#### Finalizing Design Details
+
+Compile final design deliverables with details on leveraging design tokens, identifying patterns, and utilities.
+
+- **Design artifacts**: Final files for designers to use, including Figma files, Sketch files, or other design tools.  
+- **Tokens**: Ensure consistent use of design tokens for color, typography, spacing, and layout.
+- **Patterns**: Define and use design patterns across multiple components.
+- **Utilities**: Provide utility classes for common styles and layout configurations.
+
+#### Handoff to Development
+
+At this stage the development team should have already been reviewing and maybe even prototyping the component. The final design specs should be ready for handoff to the development team to use as acceptance criteria. Ensure that component design is consistent and artifacts are in an accessible location for developers. Work in progress should be archived and siloed from final deliverables to avoid confusion.
+
+### 3. Development
+
+#### Component Structure, API, and Customization
+
+Define the component API and ensure it is flexible and customizable.
+
+- **Component Structure**: Define the structure of the component, including its props, state, and lifecycle methods.
+- **Clear and Consistent API**: Ensure the API is clear and consistent.
+- **Customization**: Identify the strategy for level of customization and extensibility. Provide hooks or props to allow for customization.
+- **Organize Components**: Organize components in a way that promotes reusability and discoverability within the component library.
+
+<Card title="Anatomy of a USWDS Component" icon="seti:smarty">
+A well-designed component should be consistent, reusable, and maintainable.
+  - **Structure**: Components should be modular and easily integrated with other parts of the design system.
+  - **Props**: Define a clear API with well-documented props and modifiers.
+  - **Documentation**: Provide comprehensive documentation, including usage examples, props tables, and design guidelines.
+</Card>
+
+#### Testing
+
+Implement robust testing strategies to ensure the quality and reliability of your components. Robust use of automation will ensure that components are tested thoroughly and consistently over time.
+
+- **Unit Testing**: Verify the functionality of individual components using tools like Jest or React Testing Library.
+- **Integration Testing**: Ensure components work together seamlessly using tools like Cypress.
+- **Accessibility Testing**: Use tools like Axe to ensure your components are accessible to all users.
+- **Visual Regression Testing**: Use tools like Chromatic to catch visual changes and ensure design consistency.
+
+### 4. Documentation
+Ensuring all necessary information is compiled and organized for distribution to all audience types: the product team, users, contributors, stakeholders, etc.
+
+- **General Guidance**: Provide clear guidelines for how to use the component, when to use, when not to use. As well as any notes on usability, accessibility, or performance, include examples and best practices.
+- **Documentation**: Create thorough documentation to support developers and designers with testing and releasing the component.
+  - **Testing Checklist**: Document the testing procedures and checklist.
+  - **Release Checklist**: Document the steps and criteria for releasing a component.
+- **Edge cases**: Document any edge cases or known issues with the component. These are more specific details than what's in general guidance.
+- **API Documentation**: Provide clear API documentation for developers to understand how to use the component effectively.
+
+### 5. Release
+
+Get everyone on the same page before releasing the new component. Understand how it'll be introduced into the design system for a smooth and effective rollout.
+
+- **Communicate the Addition**: Ensure clear communication with all stakeholders, including designers, developers, and product managers, and planned communication to end users.
+- **Coordination**: Schedule a coordinated release where all teams are aligned and prepared for the new component. This approach is useful when the component requires significant changes across multiple products or resources.
+- **Feature Flag Release vs Full Release**: Determine if you want to launch the component to all users at once or use a feature flag to roll out the component gradually. (Feature flag releases allow you to gather feedback and make adjustments as needed before a full release.)
+- **Feedback Loop**: Ensure a mechanism for feedback to collect user and stakeholder feedback on the component as it's being used.
+
+### 6. Maintenance
+
+Prepare for post-release support by creating a plan for ongoing support.  Make sure you have ways to handle issues, updates, and feedback. Here are areas to consider:
+
+- **Post-Release Support**: Provide ongoing support for the new component. Issue management systems like Jira or GitHub Issues can be used to track defects and feature requests.
+- **Monitoring**: Monitor the component's performance and usage to identify areas for improvement.
+- **Bug Fixes**: Triage, prioritize and address defects or issues that arise after the release.
+- **Dependency Updates**: Keep dependencies up to date to ensure the component remains secure and performant.
+- **Feedback Loop**: Triage and prioritize feedback gathered measure effectiveness.
+
+## General Considerations to Creating Your Own Component
+
+Consider the following when creating a new component:
+- **Principles**: Remember to follow your established design principles to guide the development of the component.
+- **User-Centric Design**: Always design with the user in mind. Ensure your components meet the needs of the end-user.
+- **Consistency**: Maintain consistency in design and behavior across all components to ensure a cohesive user experience.
+- **Simplicity**: Avoid overly complicated components that try to account for too many variants and customizations.
+- **Performance**: Optimize components for performance to ensure they load quickly and are responsive.
+- **Accessibility**: Ensure your components are accessible to users with disabilities. Follow WCAG guidelines and use accessibility testing tools.
+
+## Further Reading
+
+- [USWDS Component Lifecycle](https://designsystem.digital.gov/components/lifecycle/)
+- [Progressive Design Modeling](https://uxdesign.cc/ui-crux-progressive-design-model-ci-cd-pipeline-in-design-d2a2591a6d25)
