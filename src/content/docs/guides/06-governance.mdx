@@ -4,6 +4,7 @@ description: Learn why documentation and governance matter, what to include, and
 ---
 
 import { Card, Icon } from "@astrojs/starlight/components";
+import metricsScreenshot from "../../../assets/ds-high-level-metrics.webp";
 
 This guide is for anyone building, maintaining, or contributing to a design system. It covers why documentation and governance matter, what to include, and how to keep your system healthy as it grows.
 
@@ -134,6 +135,17 @@ Here are some useful metrics to track:
 - **Accessibility compliance**. The level of compliance and the number of accessibility issues found and fixed. Share information to build trust and confidence in your work.
 - **Contribution and Activity.** How active your code repo and channels are. The number of PR's are being opened and how long features take to release.
 - **Code and features.** Time saved for teams using your components. Track performance, security, accessibility over time. For example, measure the size of the codebase before and after changes and track lighthouse scores. Log vulnerabilities and their severity so you can track and confidently speak to your system's security over time.
+
+<figure>
+  <img src={metricsScreenshot.src} aria-describedby="metrics-screenshot" />
+  <figcaption id="metrics-screenshot">
+    Project metrics spreadsheet showing stats for customer growth, community
+    engagement, support, contributions, and major milestones. [See full metrics
+    spreadsheet |
+    GDocs](https://docs.google.com/spreadsheets/d/1RwdX20S3qS5nLarMouSGc1ID5xcWuJfsy9fU_Kk3EjI/)
+    →
+  </figcaption>
+</figure>
 
 Share wins and progress through Slack, presentations, your website, or newsletters.
 
