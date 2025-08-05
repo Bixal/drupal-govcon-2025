@@ -5,7 +5,7 @@ description: The work involved in creating a component.
 
 import { Card } from "@astrojs/starlight/components";
 
-Understanding the lifecycle of a UI component is crucial for creating a maintainable design system. This comprehensive guide covers the phases and considerations from idea to implementation. By following this guide, you will be able to create well-structured UI components that align with user needs, ensuring the long-term success and usability of your design system.
+Knowing how a UI component evolves is key to creating a design system that lasts. This guide walks you through every step from idea to implementation. By following it, you'll be able to build well-structured components that serve your users and keep your design system healthy and usable over time.
 
 ## Component Lifecycle Phases
 
@@ -14,7 +14,7 @@ Understanding the lifecycle of a UI component is crucial for creating a maintain
 3. [Development](#3-development)
 4. [Documentation](#4-documentation)
 5. [Release](#5-release)
-6. [Maintanence](#6-maintanence)
+6. [Maintenance](#6-maintenance)
 
 ### 1. Discovery
 
@@ -22,14 +22,15 @@ Understanding the lifecycle of a UI component is crucial for creating a maintain
 
 Research is a critical step in ensuring that your components meet the user's needs and are aligned with business goals.
 
-- **Landscape Analysis**: Evaluate existing solutions and identify gaps. Analyze competitive products and standards to inform your design decisions.
-- **Accessibility Analysis**: Perform an accessibility analysis to identify potential accessibility obstacles and relevant WCAG criteria that will need to be consulted. This step is crucial for ensuring that your components will be usable by all users, including those with different abilities.
+- **Landscape Analysis**: Look at existing solutions to understand best practices and spot gaps. Analyzing competitors helps you save time and resources and guiding more informed decisions. This is especially important when working with a new tool or tech stack.
+- **Accessibility Analysis**: Look for any potential accessibility issues that might make your component hard to use. Check the relevant WCAG criteria to make sure everyone can use your components.
 - **User Testing**: Conduct usability tests to understand user needs and behaviors, including participants with disabilities. This helps in designing components that are intuitive and user-friendly.
 - **Gather Feedback**: Gather feedback from stakeholders and end-users to guide component decisions and validate success.
 - **Document Findings**: Record and document the findings from your research to guide future design decisions and improvements.
 
 #### Evaluation to move forward
-At this stage an evaluation needs to be completed to identify if it is appropriate to move forward with creating a new component or if an existing component can be adapted to meet the needs identified in the research phase. Refine your research findings and prepare a document outlining the decision.
+
+At this point a decision needs to be made to whether you really need a new component or an existing component can be updated to meet the needs identified in the research phase. Summarize your research and clearly explain the decision in a short document.
 
 ### 2. Design
 
@@ -42,7 +43,7 @@ Use principles from a progressive design modeling approach when developing compo
 - **High-Fidelity Deliverables**: Finalize high-fidelity designs that align with your design system's tokens, patterns, and utilities.
 
 <Card title="Prototyping: Where and How" icon="seti:smarty">
-As you can imagine, at this stage the lines between design and development get blurry. Engineers can start on functional protoypes as soon as wireframes are validated. This is essential for progressively testing and iterating on the development based on feedback.
+As you can imagine, at this stage the lines between design and development get blurry. Engineers can start on functional prototypes as soon as wireframes are validated. This is essential for progressively testing and iterating on the development based on feedback.
   - **Tools**: Use tools like Figma or Storybook to create interactive prototypes.
   - **Testing**: Share prototypes with stakeholders and users for feedback.
   - **Iterate**: Use feedback to iterate on the design and functionality of the component.
@@ -60,11 +61,11 @@ Compile final design deliverables with details on leveraging design tokens, iden
 
 #### Handoff to Development
 
-At this stage the development team should have already been reviewing and maybe even prototyping the component. The final design specs should be ready for handoff to the development team to use as acceptance critiera. Ensure that component design is consistent and artifacts are in an accessible location for developers. Work in progress should be archived and siloed from final deliverables to avoid confusion.
+At this stage the development team should have already been reviewing and maybe even prototyping the component. The final design specs should be ready for handoff to the development team to use as acceptance criteria. Ensure that component design is consistent and artifacts are in an accessible location for developers. Work in progress should be archived and siloed from final deliverables to avoid confusion.
 
 ### 3. Development
 
-#### Component Structure, API & Customization
+#### Component Structure, API, and Customization
 
 Define the component API and ensure it is flexible and customizable.
 
@@ -92,8 +93,8 @@ Implement robust testing strategies to ensure the quality and reliability of you
 ### 4. Documentation
 Ensuring all necessary information is compiled and organized for distribution to all audience types: the product team, users, contributors, stakeholders, etc.
 
-- **Guidance**: Provide clear documentation and guidelines for using the component, including examples and best practices.
-- **Documentation**: Create comprehensive documentation to support developers and designers.
+- **Guidance**: Provide clear guidelines for how to use the component, when to use, when not to use. As well as any notes on usability, accessibility, or performance, include examples and best practices.
+- **Documentation**: Create thorough documentation to support developers and designers with testing and releasing the component.
   - **Testing Checklist**: Document the testing procedures and checklist.
   - **Release Checklist**: Document the steps and criteria for releasing a component.
 - **Edge cases**: Document any edge cases or known issues with the component.
@@ -101,7 +102,7 @@ Ensuring all necessary information is compiled and organized for distribution to
 
 ### 5. Release
 
-Prepare for the release phase by ensuring all stakeholders are aligned and prepared for the new component. Understand how the new component will be introduced into the design system for a smooth and effective rollout.
+Get everyone on the same page before releasing the new component. Understand how it'll be introduced into the design system for a smooth and effective rollout.
 
 - **Communicate the Addition**: Ensure clear communication with all stakeholders, including designers, developers, and product managers, and planned communication to end users.
 - **Coordination**: Schedule a coordinated release where all teams are aligned and prepared for the new component. This approach is useful when the component requires significant changes across multiple products or resources.
@@ -110,13 +111,13 @@ Prepare for the release phase by ensuring all stakeholders are aligned and prepa
 
 ### 6. Maintenance
 
-Prepare for post-release support by ensuring mechanisms are in place for ongoing support. Here are areas to consider.
+Prepare for post-release support by creating a plan for ongoing support.  Make sure you have ways to handle issues, updates, and feedback. Here are areas to consider:
 
 - **Post-Release Support**: Provide ongoing support for the new component. Issue management systems like Jira or GitHub Issues can be used to track defects and feature requests.
 - **Monitoring**: Monitor the component's performance and usage to identify areas for improvement.
 - **Bug Fixes**: Triage, prioritize and address defects or issues that arise after the release.
 - **Dependency Updates**: Keep dependencies up to date to ensure the component remains secure and performant.
-- **Feedback Loop**: Triage and prioritze feedback gathered measure effectiveness.
+- **Feedback Loop**: Triage and prioritize feedback gathered measure effectiveness.
 
 ## General Considerations to Creating Your Own Component
 
