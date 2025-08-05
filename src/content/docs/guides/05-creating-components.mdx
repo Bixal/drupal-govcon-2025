@@ -3,18 +3,19 @@ title: Creating Components
 description: The work involved in creating a component.
 ---
 
-import { Card } from "@astrojs/starlight/components";
+import { Card, Steps } from "@astrojs/starlight/components";
 
 Knowing how a UI component evolves is key to creating a design system that lasts. This guide walks you through every step from idea to implementation. By following it, you'll be able to build well-structured components that serve your users and keep your design system healthy and usable over time.
 
 ## Component Lifecycle Phases
-
+<Steps>
 1. [Discovery](#1-discovery)
 2. [Design](#2-design)
 3. [Development](#3-development)
 4. [Documentation](#4-documentation)
 5. [Release](#5-release)
 6. [Maintenance](#6-maintenance)
+</Steps>
 
 ### 1. Discovery
 
@@ -36,7 +37,7 @@ At this point a decision needs to be made to whether you really need a new compo
 
 #### Progressive Design Modeling
 
-Use principles from a progressive design modeling approach when developing components, where the fidelity or resolution of design deliverables increases as the task progresses. This will allow smaller assessments from other team members and stakeholders, and will help to ensure that the design is on track before moving to the next phase.
+Use principles from a progressive design modeling approach when developing components, where the fidelity or resolution of design deliverables increases as the task progresses (rough sketches → wireframes → prototypes → final product). This will allow smaller assessments from other team members and stakeholders, and will help to ensure that the design is on track before moving to the next phase.
 
 - **Initial Sketches and Wireframes**: Start with low-fidelity sketches and wireframes to conceptually outline the component.
 - **Mid-Fidelity Prototypes**: Progress to mid-fidelity prototypes to explore interaction and user flow.
@@ -50,7 +51,7 @@ As you can imagine, at this stage the lines between design and development get b
 
 </Card>
 
-#### Resolving Design Fidelity
+#### Finalizing Design Details
 
 Compile final design deliverables with details on leveraging design tokens, identifying patterns, and utilities.
 
@@ -93,11 +94,11 @@ Implement robust testing strategies to ensure the quality and reliability of you
 ### 4. Documentation
 Ensuring all necessary information is compiled and organized for distribution to all audience types: the product team, users, contributors, stakeholders, etc.
 
-- **Guidance**: Provide clear guidelines for how to use the component, when to use, when not to use. As well as any notes on usability, accessibility, or performance, include examples and best practices.
+- **General Guidance**: Provide clear guidelines for how to use the component, when to use, when not to use. As well as any notes on usability, accessibility, or performance, include examples and best practices.
 - **Documentation**: Create thorough documentation to support developers and designers with testing and releasing the component.
   - **Testing Checklist**: Document the testing procedures and checklist.
   - **Release Checklist**: Document the steps and criteria for releasing a component.
-- **Edge cases**: Document any edge cases or known issues with the component.
+- **Edge cases**: Document any edge cases or known issues with the component. These are more specific details than what's in general guidance.
 - **API Documentation**: Provide clear API documentation for developers to understand how to use the component effectively.
 
 ### 5. Release
@@ -122,7 +123,7 @@ Prepare for post-release support by creating a plan for ongoing support.  Make s
 ## General Considerations to Creating Your Own Component
 
 Consider the following when creating a new component:
-
+- **Principles**: Remember to follow your established design principles to guide the development of the component.
 - **User-Centric Design**: Always design with the user in mind. Ensure your components meet the needs of the end-user.
 - **Consistency**: Maintain consistency in design and behavior across all components to ensure a cohesive user experience.
 - **Simplicity**: Avoid overly complicated components that try to account for too many variants and customizations.
