@@ -21,9 +21,9 @@ Next, we'll see how you can apply these ideas using USWDS themes. It's especiall
 
 ## Flexible USWDS Themes
 
-If you've used USWDS, you know it comes with a default theme that you can customize with SASS variables. But if you manage multiple sites, you should consider creating your own base design language. This way, you don't have to maintain separate "base" themes or keep copying the same overrides for each project.
+If you've used USWDS, you know it starts with a default theme you can customize with SASS variables. But if you manage multiple sites, you should consider creating your own base design language. This saves you from maintaining separate "base" themes or keep copying the same overrides for each project.
 
-Keep your base theme simple and neutral, with just enough branding to set a foundation. This way other products can easily extend, try out new themes, and add their own unique branding when needed.
+Keep your base theme simple and neutral, with just enough branding to set the tone. This way, your team can easily extend, experiment with new themes, or add their own branding when needed.
 
 ### The Default Theme
 
@@ -31,13 +31,13 @@ USWDS comes with a default theme that you've probably seen many times.
 
 ![The USWDS landing page using the default blue and gray theme colors](../../../assets/uswds-landing-2025-07-30@2x.webp)
 
-By default, the primary color is `blue-60v` (`#005ea2`), the main body font is Source Sans Pro, and the headings are Merriweather Web.
+By default, the primary USWDS color is `blue-60v` (`#005ea2`), the main body font is Source Sans Pro, and the headings are Merriweather Web.
 
-If the product owner asks you to extend this and customize apply your agencies branding—that's easy, we just update the correct theme settings.
+If you need to apply your agencies branding, it's simple. We update the relevant theme settings.
 
 ### Overriding the Defaults
 
-You can easily update the theme settings using SCSS, which is the recommended way to override them. Your project might look like this:
+You can update the theme settings directly in SCSS. It's the recommended way to override them. Here's an example of how your project structure might look:
 
 <FileTree>
 
@@ -53,9 +53,9 @@ You can easily update the theme settings using SCSS, which is the recommended wa
 
 </FileTree>
 
-Below is an example of what your original custom USWDS theme override might look like, following the USWDS docs.
+Below is an example of a custom USWDS theme override, based on the official USWDS docs.
 
-This SCSS partial has some global settings and theme color overrides:
+This SCSS partial sets some global settings and theme overrides:
 
 ```scss
 // _uswds-theme.scss
@@ -113,16 +113,16 @@ And your landing page should now use the Public Sans typeface and have a light g
 
 ![The USWDS landing page now in light gray and an indigo based color scheme](../../../assets/uswds-landing-base-theme@2x.webp)
 
-This is fine for a single one-off theme. Now fast forward a few months and now you're asked to extend that original custom theme for three smaller related products. If you wanted to re-use it you'd have to:
+A single custom theme works for one site. Now fast forward a few months and now you have to extend that original custom theme for several related products. Reusing that theme can get messy fast. You'd have to:
 
 1. Create a new file
 1. Copy over settings
 1. Override what you previously overwrote
 1. Keep any settings in sync from one to the other
 
-If you wanted to create more themes maintaining them would get tedious real quick.
+If you wanted to create more themes maintaining them would be a hassle.
 
-Luckily, SASS's new module system allows you to easily override and use that as a base, which you can then override again.
+Luckily, SASS's new module system lets you easily override and use that as a base, which you can then override again for each new site. This makes updates easier.
 
 <Steps>
 
@@ -139,6 +139,8 @@ Luckily, SASS's new module system allows you to easily override and use that as 
     );
     ```
 
+    Use `@forward` to share settings. The `@use` brings those settings to the current file, so you can use them right away.
+
     ```diff
     // index.scss
 
@@ -148,11 +150,9 @@ Luckily, SASS's new module system allows you to easily override and use that as 
     @forward "your-custom-project-styles";
     ```
 
-    The `@forward` lets you define settings you want to reuse later. The `@use` imports settings into the current file so you can use them right away.
-
 2.  #### Make an Extended Theme
 
-    Then create a new SASS partial called `_uswds-theme-extended.scss`. Again, consider renaming it to match your child product name. Following the DigitalGov example, this could be PlainLanguage.gov: `_dg-pl-uswds-theme.scss`.
+    Next, make a new SASS partial called `_uswds-theme-extended.scss`. For clarity, you can rename it to match your product. For example, if your site is PlainLanguage.gov, name the file: `_dg-pl-uswds-theme.scss`.
 
     {/* prettier-ignore-start */}
 
@@ -180,13 +180,13 @@ Luckily, SASS's new module system allows you to easily override and use that as 
     @use "uswds-theme-base";
     ```
 
-    This approach lets you apply the same base theme overrides. It's useful if you're working on a child product that has the same branding, like an intranet, a brochure site, or a documentation site. You get the same consistency without the extra work.
+    This approach makes it easy to reuse your base theme. If you’re building a related site (like an intranet, brochure, or documentation site) you get the same consistent look with less effort.
 
 4.  #### Customizing the Child Theme
 
-    Now, when you want to extend and create a new theme based on your previous overrides, just update the settings that are different. This lets you reuse your base theme and only change what's different for each new product.
+    To create a new theme, just update the settings that are different from your base. You only need to change what’s different for each product.
 
-    For example, if you're working on a new Plain language site based on our DigitalGov theme, you only need to update the colors or branding that are specific to Plain language.
+    For example, if you’re building a site based on the DigitalGov theme, just update the colors or branding that are specific to that product:
 
     ```scss
     // _uswds-theme-extended.scss
@@ -203,7 +203,7 @@ Luckily, SASS's new module system allows you to easily override and use that as 
     );
     ```
 
-    This method creates a new theme by layering your previous overrides with any new changes. It makes it fast and easy to manage multiple themes that look similar but have their own custom details.
+    This approach layers your changes on top of your base theme, so you can quickly manage multiple themes that share a look but each have their own details.
 
     ![The USWDS landing page extended from previous scheme, but using violet as the primary color](../../../assets/uswds-landing-extended-theme@2x.webp)
 
