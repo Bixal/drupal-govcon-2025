@@ -3,7 +3,7 @@ title: Your Design Language
 description: A guide to building a consistent and flexible design language for your apps using USWDS and SASS.
 ---
 
-import { FileTree, Steps } from "@astrojs/starlight/components";
+import { FileTree, Steps, Card } from "@astrojs/starlight/components";
 
 A design language is a set of design rules (like colors, fonts, and spacing, etc.) that bring consistency and personality to your products.
 
@@ -19,198 +19,114 @@ It gives developers good looking products from the start and designers the flexi
 
 Next, we'll see how you can apply these ideas using USWDS themes. It's especially helpful if you're supporting multiple sites.
 
-## Flexible USWDS Themes
+## Core Elements & Design Tokens
 
-If you've used USWDS, you know it starts with a default theme you can customize with SASS variables. But if you manage multiple sites, you should consider creating your own base design language. This saves you from maintaining separate "base" themes or keep copying the same overrides for each project.
+The building blocks to design language are colors, typography, spacing, icons, and tone of voice.
 
-Keep your base theme simple and neutral, with just enough branding to set the tone. This way, your team can easily extend, experiment with new themes, or add their own branding when needed.
+### Colors
 
-### The Default Theme
+Create a color system based on your brand (blues, grays, reds, greens, etc). From that, create grades for each color from 0 to 100.
 
-USWDS comes with a default theme that you've probably seen many times.
+Then create a primary color palette (primary, accent, secondary, base). Then use those to define component and state colors, but also to ensure accessible combinations.
 
-![The USWDS landing page using the default blue and gray theme colors](../../../assets/uswds-landing-2025-07-30@2x.webp)
+If you're using USWDS as a foundation, you already have an accessible color system you can create accessible color palettes with [system color tokens](https://designsystem.digital.gov/design-tokens/color/system-tokens/).
 
-By default, the primary USWDS color is `blue-60v` (`#005ea2`), the main body font is Source Sans Pro, and the headings are Merriweather Web.
-
-If you need to apply your agencies branding, it's simple. We update the relevant theme settings.
-
-### Overriding the Defaults
-
-You can update the theme settings directly in SCSS. It's the recommended way to override them. Here's an example of how your project structure might look:
-
-<FileTree>
-
-- package.json
-- src
-  - assets
-    - styles
-      - \_uswds-theme.scss # Your custom USWDS theme settings
-      - \_your-custom-project-styles.scss # Your project's custom styles
-      - index.scss # Your main styles entrypoint
-  - components
-    - …
-
-</FileTree>
-
-Below is an example of a custom USWDS theme override, based on the official USWDS docs.
-
-This SCSS partial sets some global settings and theme overrides:
-
-```scss
-// _uswds-theme.scss
-
-@use "uswds-core" with (
-  $theme-show-compile-warnings: false,
-  $theme-show-notifications: false,
-  //
-  // Typography
-  //
-  $theme-font-type-sans: "public-sans",
-  //
-  // Colors
-  //
-  // Base gray
-  $theme-color-base-family: "gray",
-  $theme-color-base-lightest: "gray-10",
-  $theme-color-base-lighter: "gray-20",
-  $theme-color-base-light: "gray-30",
-  $theme-color-base: "gray-60",
-  $theme-color-base-dark: "gray-70",
-  $theme-color-base-darker: "gray-80",
-  $theme-color-base-darkest: "gray-90",
-  $theme-color-base-ink: "gray-80",
-
-  // Primary
-  $theme-color-primary-family: "indigo-cool-vivid",
-  $theme-color-primary-lightest: "indigo-cool-5",
-  $theme-color-primary-lighter: "indigo-cool-10",
-  $theme-color-primary-light: "indigo-cool-30",
-  $theme-color-primary: "indigo-cool-60v",
-  $theme-color-primary-vivid: "indigo-60v",
-  $theme-color-primary-dark: "indigo-cool-70v",
-  $theme-color-primary-darker: "indigo-cool-80v",
-  $theme-color-primary-darkest: "indigo-cool-90v"
-);
-```
-
-<small>
-  Colors are from [System color tokens |
-  USWDS](https://designsystem.digital.gov/design-tokens/color/system-tokens/#indigo).
-</small>
-
-Then you'd import it into your main SASS entrypoint.
-
-```diff
-// index.scss
-
-+@forward "uswds-theme;
-@forward "uswds";
-@forward "your-custom-project-styles";
-```
-
-And your landing page should now use the Public Sans typeface and have a light gray and indigo based color scheme.
-
-![The USWDS landing page now in light gray and an indigo based color scheme](../../../assets/uswds-landing-base-theme@2x.webp)
-
-A single custom theme works for one site. Now fast forward a few months and now you have to extend that original custom theme for several related products. Reusing that theme can get messy fast. You'd have to:
-
-1. Create a new file
-1. Copy over settings
-1. Override what you previously overwrote
-1. Keep any settings in sync from one to the other
-
-If you wanted to create more themes maintaining them would be a hassle.
-
-Luckily, SASS's new module system lets you easily override and use that as a base, which you can then override again for each new site. This makes updates easier.
+Token breakdown (using USWDS as an example):
 
 <Steps>
 
-1.  #### Create a Base Theme
+1. **Primitive color:** `#0050d8`
 
-    In `_uswds-theme.scss` update your `@use` to `@forward`. For clarity, name your base theme after your main product. For example, Digital Gov would be `_dg-base-uswds-theme.scss`.
+2. **Semantic token**: `'blue-warm-60v'`
 
-    ```diff
-    // _uswds-theme-base.scss
+3. **Semantic theme and state tokens:**
+   1. Theme: `primary-vivid`
+   2. State: `success`
+   3. Component: `banner-background-color`
 
-    - @use "uswds-core" with (
-    + @forward "uswds-core" with (
-      // …
-    );
-    ```
-
-    Use `@forward` to share settings. The `@use` brings those settings to the current file, so you can use them right away.
-
-    ```diff
-    // index.scss
-
-    -@forward "uswds-theme;
-    +@forward "uswds-theme-extended;
-    @forward "uswds";
-    @forward "your-custom-project-styles";
-    ```
-
-2.  #### Make an Extended Theme
-
-    Next, make a new SASS partial called `_uswds-theme-extended.scss`. For clarity, you can rename it to match your product. For example, if your site is PlainLanguage.gov, name the file: `_dg-pl-uswds-theme.scss`.
-
-    {/* prettier-ignore-start */}
-
-        <FileTree>
-          - package.json
-          - src
-            - assets
-            - styles
-              - \_uswds-theme.scss
-              - **\_uswds-theme-extended.scss** # New extended theme from base.
-              - index.scss
-            - components
-            - …
-
-        </FileTree>
-
-    {/* prettier-ignore-end */}
-
-3.  #### Reusing and Extending Base Theme
-
-    Open the new file and use your new base theme settings file.
-
-    ```scss
-    // _uswds-theme-extended.scss
-    @use "uswds-theme-base";
-    ```
-
-    This approach makes it easy to reuse your base theme. If you’re building a related site (like an intranet, brochure, or documentation site) you get the same consistent look with less effort.
-
-4.  #### Customizing the Child Theme
-
-    To create a new theme, just update the settings that are different from your base. You only need to change what’s different for each product.
-
-    For example, if you’re building a site based on the DigitalGov theme, just update the colors or branding that are specific to that product:
-
-    ```scss
-    // _uswds-theme-extended.scss
-    @use "uswds-theme-base" with (
-      $theme-color-primary-family: "violet",
-      $theme-color-primary-lightest: "violet-5",
-      $theme-color-primary-lighter: "violet-10",
-      $theme-color-primary-light: "violet-30",
-      $theme-color-primary: "violet-60",
-      $theme-color-primary-vivid: "violet-60v",
-      $theme-color-primary-dark: "violet-70",
-      $theme-color-primary-darker: "violet-80",
-      $theme-color-primary-darkest: "violet-90"
-    );
-    ```
-
-    This approach layers your changes on top of your base theme, so you can quickly manage multiple themes that share a look but each have their own details.
-
-    ![The USWDS landing page extended from previous scheme, but using violet as the primary color](../../../assets/uswds-landing-extended-theme@2x.webp)
+   It's a delicate balance to know which one to use and when. You should rely on theme tokens as much as you can so that users can easily change at a high level without having to go in and override multiple smaller settings.
 
 </Steps>
+
+### Typography
+
+Typography covers font sizes, weights, line spacing, and line width (measure). Choose a clear, readable typefaces that work well together in a variety of scenarios like:
+
+- Headings
+- Long form content
+- UI elements
+- Tabular data
+- Quotes, small text, and emphasis
+- Code
+
+Like colors, primitives are then reused in theme tokens, for example:
+
+<Steps>
+
+1. **Primitive typeface:**
+
+   ```css
+   -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+   ```
+
+2. **Semantic token**: `'system'`
+
+3. **Semantic theme tokens:**
+   - Type based: `sans`
+   - Role based : `ui`
+
+</Steps>
+
+### Spacing
+
+Spacing includes margins, padding, and layout/grid systems. Consistent spacing makes layouts clean and familiar. Having a system here is important.
+
+USWDS is based on multiples of `8px`, but other could be more fine-grained, like systems of `3px`. In smaller sizes it's important to include half-sizes.
+
+Here's an example of the potential hierarchy of spacing tokens:
+
+<Steps>
+
+1. **Primitive spacing tokens:** `4px`, `8px`, `12px`, `16px`, `32px`.
+
+2. **Semantic tokens**: `1`, `mobile-lg`.
+
+3. **Semantic theme tokens:** In components, spacing is set in theme variables:
+
+   ```scss
+   $theme-banner-max-width: "desktop";
+   ```
+
+   Which users can override in component theme settings.
+
+</Steps>
+
+### States
+
+How elements look and behave when users interact. This can mean interactive states, like: hover, active, disabled, or focus. But also UI states, like success, error, warning, and information.
+
+### Icons
+
+Visual cues for actions, navigating, or status. Keep icons consistent with the same style, stroke width, and size. Use icons to support text, **not** replace it and make sure you're providing context if it's meaningful.
+
+### Tone of Voice
+
+Tone of voice is how your design system "sounds" in writing. Your team has to decide if your product is friendly, direct, neutral, formal, etc.
+
+If you're working on non-government projects, it's helpful to think with the team:
+
+> "If your product was a Hollywood actor, who would it be and why?"
+
+Putting a familiar face could help set the voice and tone for your product. It helps teams create consistent, accessible, and user-centered products.
+
+### Summary
+
+Having a well-defined set of core elements makes your design language easy to use and scale.
 
 ## Further Reading
 
 - [Settings | U.S. Web Design System (USWDS)](https://designsystem.digital.gov/documentation/settings/)
 - [Design tokens | USWDS](https://designsystem.digital.gov/design-tokens/)
+  - [Using Color: Magic number | USWDS](https://designsystem.digital.gov/design-tokens/color/overview/#magic-number-2)
+  - [System color tokens | USWDS](https://designsystem.digital.gov/design-tokens/color/system-tokens/)
 - [Font family: Adding Fonts to USWDS | USWDS](https://designsystem.digital.gov/design-tokens/typesetting/font-family/#adding-fonts-to-uswds-2)
