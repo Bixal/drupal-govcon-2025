@@ -7,29 +7,29 @@ import { FileTree, Steps, Card } from "@astrojs/starlight/components";
 
 A design language is a set of design rules (like colors, fonts, and spacing, etc.) that bring consistency and personality to your products.
 
-It gives developers good looking products from the start and designers the flexibility of extending and getting creative. Most importantly, it's the shared language _everyone_ on your team can use to communicate.
+It gives developers good-looking products from the start and designers the flexibility to extend and get creative. Most importantly, it's the shared language _everyone_ on your team can use to communicate.
 
 **Why a design language is important**
 
-- **Identity:** Build in your brand's identity from the start.
+- **Identity:** Build your brand's identity in from the start.
 - **Consistency:** Every product or page has a consistent appearance, even when teams or tools change.
-- **Collaboration:** Clear semantically named tokens, like _primary color_ instead of `#ff69b4`, lets everyone speak the same language.
-- **Scalability:** New features naturally adopt the same style, which saves time and effort.
+- **Collaboration:** Clear, semantically named tokens lets everyone speak the same language. For example, it's easier to say _primary color_ instead of `#ff69b4` or `pink`.
+- **Scalability:** New features naturally adopt the same style, saving time and effort.
 - **Quality:** Start from a solid foundation based on accessibility and usability so your design holds up over time.
 
-Next, we'll see how you can apply these ideas using USWDS themes. It's especially helpful if you're supporting multiple sites.
+Next, we'll see how you can apply these ideas using USWDS themes. This is especially helpful if you're supporting multiple sites.
 
 ## Core Elements & Design Tokens
 
-The building blocks to design language are colors, typography, spacing, icons, and tone of voice.
+The building blocks of a design language are colors, typography, spacing, icons, and tone of voice.
 
 ### Colors
 
-Create a color system based on your brand (blues, grays, reds, greens, etc). From that, create grades for each color from 0 to 100.
+Create a color system based on your brand (blues, grays, reds, greens, etc.). From that, create grades for each color from 0 to 100.
 
-Then create a primary color palette (primary, accent, secondary, base). Then use those to define component and state colors, but also to ensure accessible combinations.
+Then create a primary color palette (primary, accent, secondary, base). Use these to define component and state colors, and to ensure accessible combinations.
 
-If you're using USWDS as a foundation, you already have an accessible color system you can create accessible color palettes with [system color tokens](https://designsystem.digital.gov/design-tokens/color/system-tokens/).
+If you're using USWDS as a foundation, you already have an accessible color system and can create accessible color palettes with [system color tokens](https://designsystem.digital.gov/design-tokens/color/system-tokens/).
 
 Token breakdown (using USWDS as an example):
 
@@ -44,13 +44,13 @@ Token breakdown (using USWDS as an example):
    2. State: `success`
    3. Component: `banner-background-color`
 
-   It's a delicate balance to know which one to use and when. You should rely on theme tokens as much as you can so that users can easily change at a high level without having to go in and override multiple smaller settings.
+   It's a delicate balance to know which one to use and when. Use theme tokens as much as you can so users can easily make high-level changes without having to override multiple smaller settings.
 
 </Steps>
 
 ### Typography
 
-Typography covers font sizes, weights, line spacing, and line width (measure). Choose a clear, readable typefaces that work well together in a variety of scenarios like:
+Typography covers font sizes, weights, line spacing, and line width (measure). Choose clear, readable typefaces that work well together in a variety of scenarios, like:
 
 - Headings
 - Long form content
@@ -59,7 +59,7 @@ Typography covers font sizes, weights, line spacing, and line width (measure). C
 - Quotes, small text, and emphasis
 - Code
 
-Like colors, primitives are then reused in theme tokens, for example:
+Like colors, primitives are then reused in theme tokens. For example:
 
 <Steps>
 
@@ -79,11 +79,11 @@ Like colors, primitives are then reused in theme tokens, for example:
 
 ### Spacing
 
-Spacing includes margins, padding, and layout/grid systems. Consistent spacing makes layouts clean and familiar. Having a system here is important.
+Spacing includes margins, padding, and layout/grid systems. Consistent spacing makes layouts clean and familiar. Having a system for spacing is important to have a cohesive design.
 
-USWDS is based on multiples of `8px`, but other could be more fine-grained, like systems of `3px`. In smaller sizes it's important to include half-sizes.
+USWDS is based on multiples of `8px`, but others could be more fine-grained, like systems of `3px`. For smaller sizes and fine-grained control, it's important to include half-sizes.
 
-Here's an example of the potential hierarchy of spacing tokens:
+Here's an example of a potential hierarchy of spacing tokens:
 
 <Steps>
 
@@ -103,25 +103,29 @@ Here's an example of the potential hierarchy of spacing tokens:
 
 ### States
 
-How elements look and behave when users interact. This can mean interactive states, like: hover, active, disabled, or focus. But also UI states, like success, error, warning, and information.
+States describe how elements look and behave when users interact. This includes interactive states like hover, active, disabled, or focus, as well as UI states like success, error, warning, and information.
 
 ### Icons
 
-Visual cues for actions, navigating, or status. Keep icons consistent with the same style, stroke width, and size. Use icons to support text, **not** replace it and make sure you're providing context if it's meaningful.
+Icons are visual cues for actions, navigation, or status. Apply icons consistently and keep them consistent in style, stroke width, and size. Use icons to support text—not replace it!
 
 ### Tone of Voice
 
-Tone of voice is how your design system "sounds" in writing. Your team has to decide if your product is friendly, direct, neutral, formal, etc.
+Tone of voice is how your design system "sounds" in writing. Your team should decide if your product is friendly, direct, neutral, formal, etc.
 
-If you're working on non-government projects, it's helpful to think with the team:
+If you're working on non-government projects, it can help to brainstorm with your team:
 
 > "If your product was a Hollywood actor, who would it be and why?"
 
-Putting a familiar face could help set the voice and tone for your product. It helps teams create consistent, accessible, and user-centered products.
+Putting a familiar face to your product can help set the voice and tone. This helps teams create consistent, accessible, and user-centered products.
 
 ### Summary
 
-Having a well-defined set of core elements makes your design language easy to use and scale.
+A well-defined design language is the foundation of a strong design system. It gives teams the building blocks to create products that are consistent, accessible, and familiar no matter the team size.
+
+When everyone uses the same building blocks and speaks the same language, products are easier to build, easier to maintain, and easier for users to trust.
+
+Take the time to think about these foundational elements so your design system is easy to use and scale.
 
 ## Further Reading
 
@@ -129,4 +133,5 @@ Having a well-defined set of core elements makes your design language easy to us
 - [Design tokens | USWDS](https://designsystem.digital.gov/design-tokens/)
   - [Using Color: Magic number | USWDS](https://designsystem.digital.gov/design-tokens/color/overview/#magic-number-2)
   - [System color tokens | USWDS](https://designsystem.digital.gov/design-tokens/color/system-tokens/)
+  - [Icon guidance | USWDS](https://designsystem.digital.gov/components/icon/#guidance)
 - [Font family: Adding Fonts to USWDS | USWDS](https://designsystem.digital.gov/design-tokens/typesetting/font-family/#adding-fonts-to-uswds-2)
