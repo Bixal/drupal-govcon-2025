@@ -8,6 +8,9 @@ export default defineConfig({
     starlight({
       title: "Branching Out: Design Systems",
       customCss: ["./src/styles/custom.css"],
+      components: {
+        PageFrame: "./src/components/PageFrame.astro",
+      },
       sidebar: [
         {
           label: "Guides",
