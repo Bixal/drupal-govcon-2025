@@ -27,8 +27,18 @@ import BixalLogo from "../assets/bixal-logo.svg"
     /* background: red; */
     padding: calc(var(--sl-nav-pad-y) * 2) var(--sl-nav-pad-x);
 
+    svg {
+      fill: white;
+    }
+
     span {
       line-height: 1;
+    }
+  }
+
+  :root[data-theme='light'] {
+    .site-footer svg {
+      fill: initial;
     }
   }
 </style>
