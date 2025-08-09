@@ -43,6 +43,10 @@ export default defineConfig({
           label: "Reference",
           autogenerate: { directory: "reference" },
         },
+        {
+          label: "Templates",
+          autogenerate: { directory: "templates" },
+        },
       ],
     }),
   ],

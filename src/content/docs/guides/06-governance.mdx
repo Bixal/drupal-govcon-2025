@@ -1,0 +1,129 @@
+---
+title: Documentation and Governance
+description: Learn why documentation and governance matter, what to include, and how to keep your design system healthy as it grows.
+---
+
+import { Card, Icon } from "@astrojs/starlight/components";
+import metricsScreenshot from "../../../assets/ds-high-level-metrics.webp";
+
+This guide is for anyone building, maintaining, or contributing to a design system. It covers why documentation and governance matter, what to include, and how to keep your system healthy as it grows.
+
+By the end of this section, you'll know how to set up clear processes to help manage your design system. You'll learn what to watch out for and receive practical advice to help your team succeed, which in turn will help your design system grow, make updates easier, and increase your team's overall knowledge.
+
+<Card title="Lottery Factor Check" icon="seti:smarty">
+  Have you heard of the lottery factor? It measures the risk your team faces if only a few people have key knowledge or skills. If someone leaves, important knowledge could be lost forever. A high factor means low risk, because there's more shared knowledge across the team.
+
+Imagine you've been working on a product for a year. You're pretty comfortable with the project and all of its ins and outs. If you win the lottery tomorrow and decide to retire, can the team continue working without skipping a beat?
+
+What would you say is the lottery factor for your team?
+
+</Card>
+
+## The Importance of Documentation
+
+Documentation is more than just code comments. It's how you share knowledge, explain how you work, highlight things to look out for, show how to deliver high-quality work, and how and why decisions are made.
+
+Good documentation helps new team members contribute quickly. Writing things down shows you're doing things intentionally and helps your team remember past decisions and lessons learned. **Good documentation is never "done".**
+
+These are some types of documentation you should consider for your project:
+
+- **Architecture Decision Records (ADRs):** Record major architectural decisions and the reasons behind them.
+- **Team Charter:** How your team works, your values, and roles.
+- **Process documentation:** How common tasks are done like sprint ceremonies, releasing and deploying code, writing guides, how research is done, etc.
+- **Security:** A security process for remediating vulnerabilities. Where and how people can submit reports.
+- **Customer support.** Provide guides for supporting users and troubleshooting, including support templates and response plans.
+- **Component guidance & API documentation:** Explain how each component works, when to use, when not to use, usability and accessibility considerations, and available settings.
+- **Changelogs:** Keep a clear record of what changed and when. This way users can track changes on components and documentation.
+- **Release notes:** Summarize new features, bug fixes, dependency and security changes for each release. Note which changes are breaking and how they affect teams.
+- **Roadmap and planning:** Plan and share your long-term vision for your design system. Prioritize your long-term strategic goals, but also include highly requested user requests.
+- **Legal:** Clearly state your licensing terms and what's allowed in your project. You don't want legal issues because you misused an asset or forgot to attribute correctly.
+- **Contribution Guidelines:** Explain how others can contribute, your code style, testing and guidance requirements, and what kind of help you need.
+
+This may seem like a lot, but you don't need to do everything at once. Start with what you know. Most importantly, treat your documentation as living documents. Keep them close to where the work happens, and regularly go back and make sure it's still accurate, useful, and plain language.
+
+For onboarding, have new members strictly follow the README or main guide. If they find something that's unclear or missing, have them update the documentation as part of their onboarding. This makes sure your docs are useful and lets new teammates contribute right away.
+
+For recurring processes, like sprint retros, add instructions or best practices at the top. Review and update the doc before/after each retro to keep it useful.
+
+## Governance: What it is & Why it Matters
+
+Governance means setting clear rules and processes for managing and updating your design system. This includes:
+
+- Who makes the decisions
+- How changes are made
+- Guidelines everyone follows
+- Keeping things organized and useful
+
+Governance helps your design system grow and keeps it useful. Even if you don't need them now, they'll help your team and users in the future. As a start consider:
+
+- ADRs or a way of recording decisions.
+- Contribution guidelines so others can effectively contribute (if you want contributions).
+- Which issues you prioritize. This helps keep everyone on track and avoiding PR's that you just can't get to.
+- A baseline of standards. For example, your accessibility baseline or the browsers you support. This way teams can use your product with confidence.
+- Communication channels. Clear ways people can get help, discuss features, make requests, and report issues.
+- Changelogs that show what changed, when, and how.
+
+You don't have to implement all of these at once, but eventually you'll be asked about them. Additionally, as your design system matures you should consider:
+
+- A process for removing features or adding new experimental ones.
+- A working group to understand team challenges and set priorities.
+- Regular audits to check quality and accessibility. Document how when you do these audits, and what to do with what you find.
+
+## Customer Support & Maintenance
+
+As your design system grows and more teams use it, you'll get more questions, requests, issues, and feedback. Be ready to respond quickly (even if it's just acknowledging the requests). Have a process in place for handling requests or issues. Listening to users is fundamental to building trust.
+
+You can't fix everything at once, so focus on these key points:
+
+1. **Set clear expectations.** Tell people what you prioritize, how long responses usually take, and how to report issues. Have special channels for urgent issues. Use tools like GitHub issues for non-urgent requests.
+1. **Be proactive and prompt.** Acknowledge requests as soon as you can and set realistic response times. You can measure the issues and response time for your metrics.
+1. **Make it easy to get in touch.** Offer different ways for people to reach out, like email, a forum, or a feedback form. Have a process to review and sort requests.
+
+Keep communication open. Share your priorities and update people on progress. Set a process for regular triage, and (most importantly) use your principles to prioritize!
+
+## Getting Buy-in & Metrics
+
+Design systems take a lot of work. It can be hard to show value without backing it up with data. Track data and metrics from the start so you can prove the impact of the design system. Again, your principles can help guide what's important to track.
+
+Here are some useful metrics to track:
+
+- **Design System Use.** Regularly check NPM downloads, the number of components being used, sites using the design system, and page visits.
+- **Customer support.** Track the number of support requests, average response time, and user satisfaction scores.
+- **Accessibility compliance**. The level of compliance and the number of accessibility issues found and fixed. Share information to build trust and confidence in your work.
+- **Contribution and Activity.** How active your code repo and channels are. The number of PR's are being opened and how long features take to release.
+- **Code and features.** Time saved for teams using your components. Track performance, security, accessibility over time. For example, measure the size of the codebase before and after changes and track lighthouse scores. Log vulnerabilities and their severity so you can track and confidently speak to your system's security over time.
+
+<figure>
+  <img src={metricsScreenshot.src} aria-describedby="metrics-screenshot" />
+  <figcaption id="metrics-screenshot">
+    Project metrics spreadsheet showing stats for customer growth, community
+    engagement, support, contributions, and major milestones. [See full metrics
+    spreadsheet |
+    GDocs](https://docs.google.com/spreadsheets/d/1RwdX20S3qS5nLarMouSGc1ID5xcWuJfsy9fU_Kk3EjI/)
+    →
+  </figcaption>
+</figure>
+
+Share wins and progress through Slack, presentations, your website, or newsletters.
+
+Be open about what you're doing, what was done, why it was done, and what you learned. This helps everyone see progress, gain knowledge, and understand your long-term vision.
+
+These practices are useful for any project, not just design systems.
+
+## Wrap-up
+
+Good documentation and governance can help your team work better, onboard new team members faster, and handle changes with confidence.
+
+Be iterative in your approach and always look to improve. This will set your team up for long-term success, provide real value with your design system, and prepare you for your eventual lottery win.
+
+## References
+
+- [Sample Sprint Retrospective Template](/templates/sprint-retrospective)
+- [ADR Template](/templates/adr)
+- [Metrics Spreadsheet | GDocs](https://docs.google.com/spreadsheets/d/1RwdX20S3qS5nLarMouSGc1ID5xcWuJfsy9fU_Kk3EjI/)
+- [USWDS Decisions (ADRs) | GitHub](https://github.com/uswds/uswds-proposals/tree/main/decisions)
+- [Contribute to USWDS | USWDS](https://designsystem.digital.gov/about/contribute/)
+- [USWDS Release Notes | GitHub](https://github.com/uswds/uswds/releases)
+- Changelogs
+  - [Banner Changelog | USWDS](https://designsystem.digital.gov/components/banner/#latest-updates)
+  - [Settings Changelog | USWDS](https://designsystem.digital.gov/documentation/settings/#latest-updates)
