@@ -1,0 +1,137 @@
+---
+title: Your Design Language
+description: A guide to building a consistent and flexible design language for your apps using USWDS and SASS.
+---
+
+import { FileTree, Steps, Card } from "@astrojs/starlight/components";
+
+A design language is a set of design rules (like colors, fonts, and spacing, etc.) that bring consistency and personality to your products.
+
+It gives developers good-looking products from the start and designers the flexibility to extend and get creative. Most importantly, it's the shared language _everyone_ on your team can use to communicate.
+
+**Why a design language is important**
+
+- **Identity:** Build your brand's identity in from the start.
+- **Consistency:** Every product or page has a consistent appearance, even when teams or tools change.
+- **Collaboration:** Clear, semantically named tokens lets everyone speak the same language. For example, it's easier to say _primary color_ instead of `#ff69b4` or `pink`.
+- **Scalability:** New features naturally adopt the same style, saving time and effort.
+- **Quality:** Start from a solid foundation based on accessibility and usability so your design holds up over time.
+
+Now that you know why design language matters, let’s look at the core elements that make it work. These building blocks help your team create products that are both consistent and flexible.
+
+## Core Elements & Design Tokens
+
+The building blocks of a design language are colors, typography, spacing, icons, and tone of voice.
+
+### Colors
+
+Create a color system based on your brand (blues, grays, reds, greens, etc.). From that, create grades for each color from 0 to 100.
+
+Then create a primary color palette (primary, accent, secondary, base). Use these to define component and state colors, and to ensure accessible combinations.
+
+If you're using USWDS as a foundation, you already have an accessible color system and can create accessible color palettes with [system color tokens](https://designsystem.digital.gov/design-tokens/color/system-tokens/).
+
+Token breakdown (using USWDS as an example):
+
+<Steps>
+
+1. **Primitive color:** `#0050d8`
+
+2. **Semantic token**: `'blue-warm-60v'`
+
+3. **Semantic theme and state tokens:**
+   1. Theme: `primary-vivid`
+   2. State: `success`
+   3. Component: `banner-background-color`
+
+   It's a delicate balance to know which one to use and when. Use theme tokens as much as you can so users can easily make high-level changes without having to override multiple smaller settings.
+
+</Steps>
+
+### Typography
+
+Typography covers font sizes, weights, line spacing, and line width (measure). Choose clear, readable typefaces that work well together in a variety of scenarios, like:
+
+- Headings
+- Long form content
+- UI elements
+- Tabular data
+- Quotes, small text, and emphasis
+- Code
+
+Like colors, primitives are then reused in theme tokens. For example:
+
+<Steps>
+
+1. **Primitive typeface:**
+
+   ```css
+   -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+   ```
+
+2. **Semantic token**: `'system'`
+
+3. **Semantic theme tokens:**
+   - Type based: `sans`
+   - Role based : `ui`
+
+</Steps>
+
+### Spacing
+
+Spacing includes margins, padding, and layout/grid systems. Consistent spacing makes layouts clean and familiar. Having a system for spacing is important to have a cohesive design.
+
+USWDS is based on multiples of `8px`, but others could be more fine-grained, like systems of `3px`. For smaller sizes and fine-grained control, it's important to include half-sizes.
+
+Here's an example of a potential hierarchy of spacing tokens:
+
+<Steps>
+
+1. **Primitive spacing tokens:** `4px`, `8px`, `12px`, `16px`, `32px`.
+
+2. **Semantic tokens**: `1`, `mobile-lg`.
+
+3. **Semantic theme tokens:** In components, spacing is set in theme variables:
+
+   ```scss
+   $theme-banner-max-width: "desktop";
+   ```
+
+   Which users can override in component theme settings.
+
+</Steps>
+
+### States
+
+States describe how elements look and behave when users interact. This includes interactive states like hover, active, disabled, or focus, as well as UI states like success, error, warning, and information.
+
+### Icons
+
+Icons are visual cues for actions, navigation, or status. Apply icons consistently and keep them consistent in style, stroke width, and size. Use icons to support text—not replace it!
+
+### Tone of Voice
+
+Tone of voice is how your design system "sounds" in writing. Your team should decide if your product is friendly, direct, neutral, formal, etc.
+
+If you're working on non-government projects, it can help to brainstorm with your team:
+
+> "If your product was a Hollywood actor, who would it be and why?"
+
+Putting a familiar face to your product can help set the voice and tone. This helps teams create consistent, accessible, and user-centered products.
+
+### Summary
+
+A well-defined design language is the foundation of a strong design system. It gives teams the building blocks to create products that are consistent, accessible, and familiar no matter the team size.
+
+When everyone uses the same building blocks and speaks the same language, products are easier to build, easier to maintain, and easier for users to trust.
+
+Take the time to think about these foundational elements so your design system is easy to use and scale.
+
+## Further Reading
+
+- [Settings | U.S. Web Design System (USWDS)](https://designsystem.digital.gov/documentation/settings/)
+- [Design tokens | USWDS](https://designsystem.digital.gov/design-tokens/)
+  - [Using Color: Magic number | USWDS](https://designsystem.digital.gov/design-tokens/color/overview/#magic-number-2)
+  - [System color tokens | USWDS](https://designsystem.digital.gov/design-tokens/color/system-tokens/)
+  - [Icon guidance | USWDS](https://designsystem.digital.gov/components/icon/#guidance)
+- [Font family: Adding Fonts to USWDS | USWDS](https://designsystem.digital.gov/design-tokens/typesetting/font-family/#adding-fonts-to-uswds-2)
