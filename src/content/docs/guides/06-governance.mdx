@@ -8,16 +8,15 @@ import metricsScreenshot from "../../../assets/ds-high-level-metrics.webp";
 
 This guide is for anyone building, maintaining, or contributing to a design system. It covers why documentation and governance matter, what to include, and how to keep your system healthy as it grows.
 
-Have you heard of the lottery or bus factor? It measures the risk your team faces if only a few people have key knowledge or skills. If someone leaves, important knowledge could be lost forever. A high factor means low risk, because there's more shared knowledge across the team.
+By the end of this section, you'll know how to set up clear processes to help manage your design system. You'll learn what to watch out for and receive practical advice to help your team succeed, which in turn will help your design system grow, make updates easier, and increase your team's overall knowledge.
+
+<Card title="Lottery Factor Check" icon="seti:smarty">
+  Have you heard of the lottery factor? It measures the risk your team faces if only a few people have key knowledge or skills. If someone leaves, important knowledge could be lost forever. A high factor means low risk, because there's more shared knowledge across the team.
 
 Imagine you've been working on a product for a year. You're pretty comfortable with the project and all of its ins and outs. If you win the lottery tomorrow and decide to retire, can the team continue working without skipping a beat?
 
-Even if you don't play the lottery or plan to leave, imagine you want to take some much needed time off. Work needs to continue without interruption while you recharge and relax.
+What would you say is the lottery factor for your team?
 
-By the end of this section, you'll know how to set up clear processes to help manage your design system. You'll learn what to watch out for and get practical advice to help your team succeed. Not just for the eventual fortune you'll win, but also to help your design system grow, make updates easier, and increase your team's overall knowledge.
-
-<Card title="Lottery Factor Check" icon="seti:smarty">
-  What would you say is the lottery factor for your team?
 </Card>
 
 ## The Importance of Documentation
@@ -40,53 +39,11 @@ These are some types of documentation you should consider for your project:
 - **Legal:** Clearly state your licensing terms and what's allowed in your project. You don't want legal issues because you misused an asset or forgot to attribute correctly.
 - **Contribution Guidelines:** Explain how others can contribute, your code style, testing and guidance requirements, and what kind of help you need.
 
-<Card title="Documentation Check" icon="seti:smarty">
-  Do you use any of the docs above? Are they helpful? If not, which would you
-  like to see in your project?
-</Card>
-
 This may seem like a lot, but you don't need to do everything at once. Start with what you know. Most importantly, treat your documentation as living documents. Keep them close to where the work happens, and regularly go back and make sure it's still accurate, useful, and plain language.
 
 For onboarding, have new members strictly follow the README or main guide. If they find something that's unclear or missing, have them update the documentation as part of their onboarding. This makes sure your docs are useful and lets new teammates contribute right away.
 
 For recurring processes, like sprint retros, add instructions or best practices at the top. Review and update the doc before/after each retro to keep it useful.
-
-<details>
-<summary>Sample doc with Frontmatter</summary>
-
-How frontmatter helps explain how to use. This way anyone can run the sprint retro.
-
-```md
-// 2025-sprint-retrospective.md
-
----
-
-A template for bi-weekly sprint retros.
-
-Best practices:
-
-- Add a new date entry for each retro.
-- Focus on what was achieved, not just what happened. Be open and transparent without blame or judgement.
-- Use a 2 to 5 minute timer for each column to keep meeting on track and respect everyone's time.
-- If you agree with something, add a "➕" at the end.
-- End each retro with clear action items. Make sure the team agrees, has an assignee, and a target date.
-
----
-
-# Sprint Retro
-
-## 08-04-2025
-
-| What worked well | What didn't work so well |
-| ---------------- | ------------------------ |
-|                  |                          |
-
-### Action Items
-
-- [ ] JM to create issue templates for feature requests and bugs.
-```
-
-</details>
 
 ## Governance: What it is & Why it Matters
 
@@ -97,7 +54,7 @@ Governance means setting clear rules and processes for managing and updating you
 - Guidelines everyone follows
 - Keeping things organized and useful
 
-Governance helps your design system grow and keeps it useful. Even if you don't need them now, they'll help your team and users in the future. As a start you consider:
+Governance helps your design system grow and keeps it useful. Even if you don't need them now, they'll help your team and users in the future. As a start consider:
 
 - ADRs or a way of recording decisions.
 - Contribution guidelines so others can effectively contribute (if you want contributions).
@@ -158,3 +115,15 @@ These practices are useful for any project, not just design systems.
 Good documentation and governance can help your team work better, onboard new team members faster, and handle changes with confidence.
 
 Be iterative in your approach and always look to improve. This will set your team up for long-term success, provide real value with your design system, and prepare you for your eventual lottery win.
+
+## References
+
+- [Sample Sprint Retrospective Template](/templates/sprint-retrospective)
+- [ADR Template](/templates/adr)
+- [Metrics Spreadsheet | GDocs](https://docs.google.com/spreadsheets/d/1RwdX20S3qS5nLarMouSGc1ID5xcWuJfsy9fU_Kk3EjI/)
+- [USWDS Decisions (ADRs) | GitHub](https://github.com/uswds/uswds-proposals/tree/main/decisions)
+- [Contribute to USWDS | USWDS](https://designsystem.digital.gov/about/contribute/)
+- [USWDS Release Notes | GitHub](https://github.com/uswds/uswds/releases)
+- Changelogs
+  - [Banner Changelog | USWDS](https://designsystem.digital.gov/components/banner/#latest-updates)
+  - [Settings Changelog | USWDS](https://designsystem.digital.gov/documentation/settings/#latest-updates)

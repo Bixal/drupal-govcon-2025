@@ -4,20 +4,20 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "format:check": "npx prettier ./**/*.{css,md} --check",
-    "format:fix": "npx prettier ./**/*.{css,md} --write",
+    "format:check": "npx prettier ./**/*.{css,md,mdx} --check",
+    "format:fix": "npx prettier ./**/*.{css,md,mdx} --write",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "0.34.3",
-    "astro": "5.6.1",
-    "sharp": "0.32.5"
+    "@astrojs/starlight": "0.35.2",
+    "astro": "5.12.8",
+    "sharp": "0.34.3"
   },
   "devDependencies": {
-    "lefthook": "1.11.14",
+    "lefthook": "1.12.2",
     "prettier": "3.6.2"
   }
 }

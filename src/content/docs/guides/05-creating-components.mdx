@@ -8,13 +8,21 @@ import { Card, Steps } from "@astrojs/starlight/components";
 Knowing how a UI component evolves is key to creating a design system that lasts. This guide walks you through every step from idea to implementation. By following it, you'll be able to build well-structured components that serve your users and keep your design system healthy and usable over time.
 
 ## Component Lifecycle Phases
+
 <Steps>
+
 1. [Discovery](#1-discovery)
+
 2. [Design](#2-design)
+
 3. [Development](#3-development)
+
 4. [Documentation](#4-documentation)
+
 5. [Release](#5-release)
+
 6. [Maintenance](#6-maintenance)
+
 </Steps>
 
 ### 1. Discovery
@@ -55,7 +63,7 @@ As you can imagine, at this stage the lines between design and development get b
 
 Compile final design deliverables with details on leveraging design tokens, identifying patterns, and utilities.
 
-- **Design artifacts**: Final files for designers to use, including Figma files, Sketch files, or other design tools.  
+- **Design artifacts**: Final files for designers to use, including Figma files, Sketch files, or other design tools.
 - **Tokens**: Ensure consistent use of design tokens for color, typography, spacing, and layout.
 - **Patterns**: Define and use design patterns across multiple components.
 - **Utilities**: Provide utility classes for common styles and layout configurations.
@@ -76,10 +84,12 @@ Define the component API and ensure it is flexible and customizable.
 - **Organize Components**: Organize components in a way that promotes reusability and discoverability within the component library.
 
 <Card title="Anatomy of a USWDS Component" icon="seti:smarty">
-A well-designed component should be consistent, reusable, and maintainable.
-  - **Structure**: Components should be modular and easily integrated with other parts of the design system.
-  - **Props**: Define a clear API with well-documented props and modifiers.
-  - **Documentation**: Provide comprehensive documentation, including usage examples, props tables, and design guidelines.
+  A well-designed component should be consistent, reusable, and maintainable. -
+  **Structure**: Components should be modular and easily integrated with other
+  parts of the design system. - **Props**: Define a clear API with
+  well-documented props and modifiers. - **Documentation**: Provide
+  comprehensive documentation, including usage examples, props tables, and
+  design guidelines.
 </Card>
 
 #### Testing
@@ -92,6 +102,7 @@ Implement robust testing strategies to ensure the quality and reliability of you
 - **Visual Regression Testing**: Use tools like Chromatic to catch visual changes and ensure design consistency.
 
 ### 4. Documentation
+
 Ensuring all necessary information is compiled and organized for distribution to all audience types: the product team, users, contributors, stakeholders, etc.
 
 - **General Guidance**: Provide clear guidelines for how to use the component, when to use, when not to use. As well as any notes on usability, accessibility, or performance, include examples and best practices.
@@ -112,7 +123,7 @@ Get everyone on the same page before releasing the new component. Understand how
 
 ### 6. Maintenance
 
-Prepare for post-release support by creating a plan for ongoing support.  Make sure you have ways to handle issues, updates, and feedback. Here are areas to consider:
+Prepare for post-release support by creating a plan for ongoing support. Make sure you have ways to handle issues, updates, and feedback. Here are areas to consider:
 
 - **Post-Release Support**: Provide ongoing support for the new component. Issue management systems like Jira or GitHub Issues can be used to track defects and feature requests.
 - **Monitoring**: Monitor the component's performance and usage to identify areas for improvement.
@@ -123,6 +134,7 @@ Prepare for post-release support by creating a plan for ongoing support.  Make s
 ## General Considerations to Creating Your Own Component
 
 Consider the following when creating a new component:
+
 - **Principles**: Remember to follow your established design principles to guide the development of the component.
 - **User-Centric Design**: Always design with the user in mind. Ensure your components meet the needs of the end-user.
 - **Consistency**: Maintain consistency in design and behavior across all components to ensure a cohesive user experience.

@@ -8,6 +8,9 @@ export default defineConfig({
     starlight({
       title: "Branching Out: Design Systems",
       customCss: ["./src/styles/custom.css"],
+      components: {
+        PageFrame: "./src/components/PageFrame.astro",
+      },
       sidebar: [
         {
           label: "Guides",
@@ -23,7 +26,7 @@ export default defineConfig({
               slug: "guides/03-tech-stack",
             },
             {
-              label: "Create your own design language",
+              label: "Your design language",
               slug: "guides/04-design-language",
             },
             {

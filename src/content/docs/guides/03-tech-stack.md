@@ -62,7 +62,6 @@ Make sure that frontend development follows the design language using Sass varia
 
 If you need to support many different platforms, consider [**Style Dictionary**](https://styledictionary.com/). It helps you use your tokens in iOS, Android, and more.
 
-
 ### Documentation
 
 Effective documentation is crucial for ensuring adoption and consistency.
