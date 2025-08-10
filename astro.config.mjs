@@ -43,7 +43,7 @@ export default defineConfig({
           label: "Exercises",
           items: [
             {
-              label: "01. Getting Started",
+              label: "01. Translating Wireframes",
               slug: "exercises/01",
             },
           ],
