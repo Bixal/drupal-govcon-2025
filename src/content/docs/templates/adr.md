@@ -3,6 +3,26 @@ title: ADR Template
 description: A template for documenting important technical decisions, including background, available options, rationale, expected benefits, possible risks, and any supporting information.
 ---
 
+Use this template to clearly document important technical decisions. Record the background, options, reasoning, benefits, risks, and any supporting info.
+
+## How to use
+
+1. Make a `decisions` folder in your project.
+2. Copy the template below into that folder.
+3. Add a README that explains how and when to use the template, and how to approve decisions.
+4. Duplicate the template for each new decision and fill it out.
+
+You should have something like this:
+
+```sh
+decisions/
+├── _adr-template.md
+├── README.md
+└── 0001-require-typescript.md
+```
+
+## Template
+
 ```md
 <!-- adr_template.md -->
 
