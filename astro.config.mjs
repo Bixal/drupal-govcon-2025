@@ -40,8 +40,13 @@ export default defineConfig({
           ],
         },
         {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
+          label: "Exercises",
+          items: [
+            {
+              label: "01. Getting Started",
+              slug: "exercises/01",
+            },
+          ],
         },
         {
           label: "Templates",
