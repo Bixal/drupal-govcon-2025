@@ -1,0 +1,189 @@
+---
+title: USWDS Packages
+description: TK
+---
+
+import { Steps, FileTree } from "@astrojs/starlight/components";
+
+You can follow along in the [demo](https://github.com/Bixal/drupal-govcon-2025-demo) repository.
+
+In this exercise we'll see the importance of using [USWDS component packages](https://designsystem.digital.gov/components/packages/).
+
+## The Default Approach
+
+{/* prettier-ignore-start */}
+
+<Steps>
+1. If you're new to USWDS you've probably seen the styles being loaded like so:
+
+    ```scss
+    // your-styles-entrypoint.scss
+
+    // The entire USWDS styles.
+    @forward "uswds";
+
+    // Your custom project styles.
+    @forward "your-project-styles";
+    ```
+
+1. You can see this in action in the demo repo:
+
+
+    ```scss
+    // ./storybook/packages/index.scss
+
+    @forward "uswds";
+    ```
+
+1. In your terminal, run the component library.
+
+    ```sh
+    # drupal-govcon-2025-demo ➜
+    npm run lib
+    ```
+
+1. Visit the documentation page.
+
+    ```sh
+    http://localhost:6060/?path=/story/pages-landing--default
+    ```
+
+    You should see the standard USWDS documentation page all styled and looking mostly good.
+
+1. Next, go back to your terminal and stop the task or open a new tab and compile the styles.
+
+    ```sh
+    # drupal-govcon-2025-demo ➜
+    npm run build:vite -w storybook
+    ```
+
+1. After around 4 seconds you'll get a compiled CSS file you can see in `./storybook/dist`
+
+    <FileTree>
+    - storybook/
+        - dist/
+            - assets/
+                - index-[a_random_hash].css # 565KB
+    </FileTree>
+
+    If you open up finder and you'll see that the file weighs about `565KB`. Using the entire stylesheet without thinking about the components you'll use, like in the previous exercise, can be a heavy handed approach.
+
+    Let's take a leaner approach by using USWDS component packages.
+</Steps>
+
+{/* prettier-ignore-end */}
+
+## Replacing with Packages
+
+{/* prettier-ignore-start */}
+
+<Steps>
+
+1. Make sure your local component library environment is running.
+
+    ```sh
+    # drupal-govcon-2025-demo ➜
+    npm run lib
+    ```
+
+1. Open up the `index.scss` file.
+
+    ```scss
+    // ./storybook/index.scss
+    @forward "uswds-theme";
+
+    @forward "uswds";
+    ```
+
+1. Remove the `@forward`.
+
+    ```diff
+    // ./storybook/index.scss
+
+    @forward "uswds-theme";
+
+    - @forward "uswds";
+    ```
+
+1. Next, open the documentation page in your browser. You should see an unstyled page.
+
+    ```sh
+    http://localhost:6060/?path=/story/pages-landing--default
+    ```
+
+1. First, let's identify the components we have on the page.
+
+1. Next we'll use the table in the [USWDS Packages docs](https://designsystem.digital.gov/components/packages/) and import what we need. Let's fix the Government Banner first.
+
+    ```diff
+    // ./storybook/index.scss
+
+    + @forward "usa-banner";
+    ```
+
+    You should see a much quicker compile in your terminal. The page should auto refresh and you should see a banner with some styles.
+
+    Can you add the remaining packages?
+
+    <details>
+      <summary>Solution</summary>
+
+      Your index file should look like this:
+
+      ```scss
+      // ./storybook/index.scss
+
+      @forward "usa-accordion";
+      @forward "usa-banner";
+      @forward "usa-button";
+      @forward "usa-skipnav";
+      @forward "usa-header";
+      @forward "usa-hero";
+      @forward "usa-section";
+      @forward "usa-footer";
+      @forward "usa-identifier";
+      ```
+    </details>
+
+    You might have noticed that some packages already include other components. For example, `usa-button` styles appear with `usa-header` styles. If you also forward buttons you'll only load it once thanks to SASS modules.
+
+
+1. We're just missing a few bundled packages to make this work, the global styles that includes the CSS normalize and the typography. In the packages table they're called `uswds-global` `uswds-typography`.
+
+    ```scss
+    @forward "uswds-global";
+    @forward "uswds-typography";
+    ```
+
+    <details>
+      <summary>Solution</summary>
+
+      Your index file should look like this:
+
+      ```scss
+      // ./storybook/index.scss
+
+      @forward "usa-accordion";
+      @forward "usa-banner";
+      @forward "usa-button";
+      @forward "usa-skipnav";
+      @forward "usa-header";
+      @forward "usa-hero";
+      @forward "usa-section";
+      @forward "usa-footer";
+      @forward "usa-identifier";
+      ```
+    </details>
+
+1. If you take a look at the page again, you should see the page is styled again.
+
+1. Run the build command again and see that your styles are much leaner too.
+
+    ```sh
+    npm run build:vite -w storybook
+    ```
+
+    The `index.css` file should be `149KB` now, down 416 KB from our original. Not only do you get faster builds and leaner styles, but now you're setup to be able to extend!
+</Steps>
+
+{/* prettier-ignore-end */}
