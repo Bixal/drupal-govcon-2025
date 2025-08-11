@@ -40,8 +40,21 @@ export default defineConfig({
           ],
         },
         {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
+          label: "Exercises",
+          items: [
+            {
+              label: "00. Local Setup",
+              slug: "exercises/00",
+            },
+            {
+              label: "01. Translating Wireframes",
+              slug: "exercises/01",
+            },
+            {
+              label: "02. USWDS Packages",
+              slug: "exercises/02",
+            },
+          ],
         },
         {
           label: "Templates",
