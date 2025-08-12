@@ -55,7 +55,7 @@ export default defineConfig({
               slug: "exercises/02",
             },
             {
-              label: "03. ",
+              label: "03. Custom Components with USWDS",
               slug: "exercises/03",
             },
           ],
