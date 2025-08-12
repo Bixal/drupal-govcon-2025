@@ -1,0 +1,68 @@
+---
+title: Extending USWDS
+description: TK
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+1. Create a custom quote component.
+
+import WireframeQuote from "../../../assets/wireframe-quote.svg";
+
+<WireframeQuote />
+
+{/* prettier-ignore-start */}
+
+<Steps>
+1. Let's update our theme primary colors.
+
+    ```diff
+    // ./storybook/packages/_uswds-theme.scss
+
+    @use "uswds-core" with (
+      $theme-image-path: "@uswds/uswds/img",
+      $theme-font-path: "@uswds/uswds/fonts",
+    +  $theme-color-primary: "green-warm-60v",
+    +  $theme-color-primary-dark: "green-warm-70v",
+    +  $theme-color-primary-darker: "green-warm-80v",
+    +  $theme-color-base-lightest: "yellow-5v",
+    +  $theme-color-base-lighter: "yellow-10",
+    +  $theme-color-base-light: "yellow-30v",
+    +  $theme-color-base-darkest: "yellow-80v",
+    +  $theme-color-accent-cool: "gold-30v",
+    +  $theme-color-accent-cool-dark: "gold-50v",
+      // $theme-show-compile-warnings: false,
+      // $theme-show-notifications: false
+    );
+
+    ```
+
+</Steps>
+
+{/* prettier-ignore-end */}
+
+## Replacing with Packages
+
+{/* prettier-ignore-start */}
+
+<Steps>
+
+1. Make sure your local component library environment is running.
+
+    ```sh
+    # drupal-govcon-2025-demo ➜
+    npm run lib
+    ```
+
+1. Open up the `index.scss` file.
+
+    ```scss
+    // ./storybook/packages/_uswds-theme.scss
+    @forward "uswds-theme";
+
+    @forward "uswds";
+    ```
+
+</Steps>
+
+{/* prettier-ignore-end */}
