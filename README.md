@@ -2,7 +2,10 @@
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-A guide for starting your own design system. This project is hosted on netlify: https://drupal-govcon-2025.netlify.app/
+A guide for starting your own design system. This project is hosted on netlify: 
+
+- https://drupal-govcon-2025.bixal.com/
+- https://drupal-govcon-2025.netlify.app/
 
 The repo for the code exercises can be found [here](https://github.com/Bixal/drupal-govcon-2025-demo).
 
