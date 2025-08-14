@@ -47,12 +47,16 @@ export default defineConfig({
               slug: "exercises/00",
             },
             {
-              label: "01. Translating Wireframes",
+              label: "01. USWDS Packages",
               slug: "exercises/01",
             },
             {
-              label: "02. USWDS Packages",
+              label: "02. Translating Wireframes",
               slug: "exercises/02",
+            },
+            {
+              label: "03. Custom Components with USWDS",
+              slug: "exercises/03",
             },
           ],
         },

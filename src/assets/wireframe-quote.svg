@@ -1,0 +1,32 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="quoteGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#444"/>
+      <stop offset="100%" style="stop-color:#333"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Component Background -->
+  <rect width="800" height="600" fill="url(#quoteGradient)" stroke="none" rx="15"/>
+
+  <!-- Main Quote Text -->
+  <text x="380" y="150" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="white">Transforming Government </text>
+  <text x="380" y="200" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="white">Services with Digital and </text>
+  <text x="380" y="250" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="white">Human-Centered Solutions</text>
+
+  <!-- Divider Line -->
+  <line x1="80" y1="360" x2="720" y2="360" stroke="#888" stroke-width="2" opacity="0.3"/>
+
+  <!-- Author Section -->
+  <!-- Profile Image Placeholder -->
+  <circle cx="150" cy="460" r="50" fill="#e6e6e6" stroke="white" stroke-width="3"/>
+  <text x="150" y="470" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#888">PHOTO</text>
+
+  <!-- Author Name and Title -->
+  <text x="230" y="450" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">Jane Smith</text>
+  <text x="230" y="480" font-family="Arial, sans-serif" font-size="16" fill="#aaa">Creative Director</text>
+
+  <!-- Quote marks (decorative) -->
+  <text x="80" y="100" font-family="Arial, sans-serif" font-size="80" fill="#ddd" opacity="0.8">“</text>
+  <text x="700" y="320" font-family="Arial, sans-serif" font-size="80" fill="#ddd" opacity="0.8">”</text>
+</svg>
