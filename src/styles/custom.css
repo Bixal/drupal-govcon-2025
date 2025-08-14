@@ -1,7 +1,10 @@
+@import url("https://use.typekit.net/egs2byl.css");
+
 @layer starlight, theme;
 
 @layer theme {
   :root {
+    --sl-font: "proxima-nova", sans-serif;
     --sl-text-xs: var(--sl-text-sm);
     --sl-text-body: var(--sl-text-lg);
     --sl-text-body-sm: var(--sl-text-base);
@@ -10,6 +13,15 @@
 
   body {
     font-size: var(--sl-text-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 800 !important;
   }
 
   .inline-icon {
