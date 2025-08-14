@@ -8,20 +8,20 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 
 import WireframeQuote from "../../../assets/wireframe-quote.svg";
 
-In this exercise we're going to use USWDS to create a new, custom, component. By the end you should be able to know how USWDS components are made so you can contribute them back in the future to help others.
+In this exercise we're going to use USWDS to create a new, custom, component. By the end you should know how USWDS components are made so you can branch off of USWDS and create your own.
 
-Below we a common quote component. Although it may appear simple, we're going to apply system level thinking and USWDS design language to extend USWSD and create our own custom component.
+Below we a mockup for a quote component. Although it may appear simple, we're going to apply system level thinking and USWDS design language to extend USWDS to create it.
 
 <WireframeQuote />
 
 ## Searching For Existing Components
 
-Let's make sure we're not duplicating work by checking to see if USWDS offers something already.
+First, let's make sure we're not duplicating effort by checking to see if USWDS already offers something.
 
 {/* prettier-ignore-start */}
 
 <Steps>
-1. Our first step is to check the official [USWDS components page](https://designsystem.digital.gov/components/overview/) and see if the component or something related doesn't already exist.
+1. Our first step is to check the official [USWDS components page](https://designsystem.digital.gov/components/overview/) and see if a quote component (_or something similar_) doesn't already exist.
 
     ![The USWDS Component landing page](../../../assets/uswds-components-page.webp)
 
@@ -29,21 +29,13 @@ Let's make sure we're not duplicating work by checking to see if USWDS offers so
 
 1. We know this is a typographic element, so lets check the typography component. On the left-hand sidenav find "Typography" or enter it in the "Find a USWDS component" search box.
 
-1. There's general guidance on the [Typography page](https://designsystem.digital.gov/components/typography/), but no actual quote mentioned. The left-hand sidenav also has "Prose" listed. It's related to typography, so let's check that.
+1. There's general guidance on the [Typography page](https://designsystem.digital.gov/components/typography/), but no actual quote mentioned. The left sidenav shows "Prose" listed. It's related to typography, so let's check that.
 
-1. We see an example of prose (long form content), but no quote or blockquote.
+1. We see an example of prose (long form content), but no quote or blockquote. Just to triple check, we'll visit the [USWDS Component library](https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/develop/).
 
-1. Just to triple check, we'll visit the [USWDS GitHub repo](https://github.com/uswds/uswds).
+    ![The USWDS Component library](../../../assets/uswds-storybook.webp)
 
-   USWDS components are prefixed with `usa`, so lets search `usa-quote` or `blockquote`:
-
-   ```sh
-   repo:uswds/uswds ("usa-quote" OR blockquote)
-   ```
-
-   ![Searching for quote in USWDS github repository](../../../assets/gh-search-quote.webp)
-
-   No components appear, but we do get an icon, which might be helpful later.
+    Nothing there either, so we're good to create our own!
 
 </Steps>
 
@@ -51,7 +43,7 @@ Let's make sure we're not duplicating work by checking to see if USWDS offers so
 
 ## Creating the Component
 
-We've made sure this component doesn't exist already and will need to create a new one. Looking at our component again, let's think about how we'll build this.
+We've made sure this component doesn't exist already and need to create one. Looking at our component again, let's think about how we'll build this.
 
 <WireframeQuote />
 
@@ -59,25 +51,29 @@ It's important to think about:
 
 1. Component content and fallbacks
    1. What if we don't have a profile image?
-   1. What if we don't have an author at all?
+   1. What if we don't have an author or their title?
 1. Customizations
    1. How much configuration or theme settings do we need to create? Too few and users might have to add their own overrides. Too many and it'll be too much work or confusing to configure.
+   1. How many variants do we need?
 
-With those considerations in mind, we'll start small and do our best to provide a "good" default that has:
+With those considerations in mind, let's start small and do our best to provide a "good" default that has:
 
 1. Top section for the quote which has:
-   1. A quote mark, either text or an icon.
+   1. A quote mark, either text or an icon
    1. The quote itself
-1. A bottom section for the meta information which includes:
-   1. A title.
-   1. An author section with: Profile picture, Full name, and Title.
+1. An (optional) bottom section for the author information which includes:
+   1. A profile picture or image.
+   1. A full name.
+   1. The person's role or title.
 
-No matter the tech stack of your design system, we'll need to make sure we're using accessible, semantic, markup. We know there's a [Blockquote element | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/blockquote), which we'll use as our foundation.
+No matter the tech stack of your design system, we'll need to make sure we're using accessible, semantic, markup. We know there's a native [Blockquote element | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/blockquote), so we'll use as our foundation.
 
 Our biggest resources in applying the design language will be:
 
-- The [USWDS Design Tokens page](https://designsystem.digital.gov/design-tokens/) to quickly grab tokens we need
-- The [Settings page](https://designsystem.digital.gov/documentation/settings/) to make sure we're following existing patterns.
+- The [USWDS Design Tokens page](https://designsystem.digital.gov/design-tokens/) to quickly reference the tokens we need.
+- The [Settings page](https://designsystem.digital.gov/documentation/settings/) to make sure we're following existing component patterns. For example, which tokens are currently used for existing components.
+
+Following these guidelines, we'll have a component that looks and feels like a USWDS component. Plus, we'll be able to contribute it back easily without too much re-work.
 
 ---
 
@@ -86,9 +82,9 @@ Our biggest resources in applying the design language will be:
 <Steps>
 1. In the demo repo, make sure the component library is running [`npm run lib`] and go to http://localhost:6060/. Open the quote component that's listed in the sidebar.
 
-1. In your browser, go to the [Default Quote](http://localhost:6060/?path=/story/components-quote--default) in Storybook. This is where we'll see the preview of the component as we develop.
+1. In your browser, go to the [Default Quote](http://localhost:6060/?path=/story/components-quote--default) in Storybook. This is where we'll see the component as we develop.
 
-1. In your code editor, open `quote.html.twig`. Right now its pretty bare bones and is based off of the MDN example. We'll need to add our classes.
+1. In your code editor, open `quote.html.twig`. Right now its pretty bare bones and is based off of the MDN example.
 
     ```html
     <!-- quote.html.twig -->
@@ -106,7 +102,7 @@ Our biggest resources in applying the design language will be:
     </div>
     ```
 
-1. We'll be using **B**lock **E**lement **M**odifier classes, just like USWDS. This is Drupal Govcon, so we'll use `dg` as our prefix.
+1. We'll start with our structure. We'll be using **B**lock **E**lement **M**odifier classes, just like USWDS. This is Drupal Govcon, so we'll use `dg` as our prefix.
 
     Let's add our top-level component class, `dg-quote`.
 
@@ -133,15 +129,15 @@ Our biggest resources in applying the design language will be:
 
 1. Next, let's add classes for the top sections. We're not adding classes to every element. You should take a minimal approach first to avoid redundant or unnecessary boilerplate.
 
-    Let's split the top and bottom sections. Typically, USWDS components are broken out like semantic layout elements, like `header, body, footer` in the [USA Card](https://designsystem.digital.gov/components/card/) component.
+    Let's split the top and bottom sections. Typically, USWDS components are broken out like semantic layout elements. You can see an example in the [USA Card](https://designsystem.digital.gov/components/card/) component's use of `header, body, footer`.
 
-    We'll take a similar approach to this component by adding a body class [`dg-quote__body`] to the blockquote element.
+    We'll take a similar approach to this component by adding a body class [`dg-quote__body`] to the blockquote element. Body makes sense, because it's the most important part of the component. Plus, it gives us the opportunity to a header in the future.
 
     ```diff
     <!-- quote.html.twig -->
     <div class="dg-quote">
     -  <blockquote>
-    +  <blockquote  class="dg-quote__body">
+    +  <blockquote class="dg-quote__body">
         <p>
           Transforming Government Services with Digital and Human-Centered Solutions
         </p>
@@ -154,7 +150,9 @@ Our biggest resources in applying the design language will be:
     </div>
     ```
 
-1. For the bottom section, we have a paragraph, but not everything inside fits semantically. For now, let's convert it to a generic `div` and update once we test in a screen reader, like VoiceOver.
+1. For the bottom section, we have a paragraph, but not everything inside fits semantically. For example, the image inside the paragraph.
+
+    For now, let's convert it to a generic `div` and update once we test in a screen reader, like VoiceOver.
 
     We'll also add a class. We could either use `footer` or `meta`. In this case, we'll start with a generic approach (footer) and update as we iterate and test.
 
@@ -170,9 +168,9 @@ Our biggest resources in applying the design language will be:
     +  <div class="dg-quote__footer">
         <img src="/assets/quote-placeholder.svg" alt="" />
     -    <span>Jane Smith</span>
-    +    <div>Jane Smith</div>
+    +    <div class="dg-quote__author-title">Jane Smith</div>
     -    <span>Creative Director</span>
-    +    <div>Creative Director</div>
+    +    <div class="dg-quote__author-subtitle">Creative Director</div>
     -  </p>
     +  </div>
     </div>
@@ -182,16 +180,22 @@ Our biggest resources in applying the design language will be:
       Notice how we didn't use `name` or `job title` for the class? We need to make sure we don't box ourselves in the future.
     </Aside>
 
-1. We also know we'll need the image and text to be side-by-side, like in the Gov Banner.
+1. We also know we'll need the image and text to be side-by-side. The Gov Banner has an example of this when you expand it.
 
     We could:
-      1. Write our own custom CSS.
-      1. Use the [grid component](https://designsystem.digital.gov/utilities/layout-grid/) by including `usa-layout-grid`. This is a heavy CSS file though, because it compiles responsive classes too, so avoid unless you'll be doing a lot of custom layouts.
-      1. Use media block, like in USA Banner.
+      1. **Write our own custom CSS**:
+          1. We don't know how much CSS we'll need.
+          1. We'll have to test it extensively at different screen sizes.
+          1. It's already similar to an existing pattern, so could cause confusion.
+          1. Plus, we'll be on the hook for maintaining it **forever**.
+      1. **Use the [grid component](https://designsystem.digital.gov/utilities/layout-grid/) by including `usa-layout-grid`.** This is a heavy CSS file though, because it compiles responsive classes too, so avoid unless you'll be doing a lot of custom layouts.
+      1. **Just use media block**, like in USA Banner. The downside is our markup might not be as clean, but this seems like the best start.
 
-      For now, we'll try `media-block` and test before releasing if and how it impacts performance.
+      We'll start with `media-block` and test before launch if and how it impacts performance.
 
-      Media block isn't on the official documentation, but we can see it in the live component library, [here](https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/develop/?path=/story/components-media-block--media-block).
+      <Aside type="tip">
+        Media block isn't on the _official_ documentation, but we can see it in the [component library](https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/develop/?path=/story/components-media-block--media-block).
+      </Aside>
 
     ```diff
     <!-- quote.html.twig -->
@@ -221,7 +225,7 @@ Our biggest resources in applying the design language will be:
     It should be a square icon with two more lines to the top right of it.
 
     <Aside type="note">
-      Not only do we work mobile-first, but this size also covers the WCAG 2.1 AA criteria for reflow!
+      Mobile-first not only ensures our component looks good everywhere, but this `320px` also covers the WCAG 2.1 AA criteria for reflow!
     </Aside>
 
 1. In your editor, open the SCSS partial `_quote.scss`. We'll definitely need USWDS tokens, so lets add that first.
@@ -250,13 +254,15 @@ Our biggest resources in applying the design language will be:
     + }
     ```
 
-1. In this step, we'll be adding minimal spacing tokens.
+    You should see a gray background on the component or a successful compile in your terminal.
+
+1. In this step, we'll be adding minimal [spacing tokens].
+
+    You can see how other components set radius in the [USWDS Settings page](https://designsystem.digital.gov/documentation/settings/). It's a `unit`, so we can click on the `units` link and see all available unit token values. Let's start with a basic unit of `1`.
 
     <Aside type="tip">
-      If you're completely new to USWDS tokens you can use default CSS values, like `gray` or `1rem` and the replace those with the correct tokens later on.
+      [Spacing tokens](https://designsystem.digital.gov/design-tokens/spacing-units/) are based on multiples of `8px`, so we know 1 unit is `8px`, 2 is `16px`, 3 units is `24px`, etc. Knowing this you can use spacing units without really thinking too much about them.
     </Aside>
-
-    You can see how other components set radius in the [USWDS Settings page](https://designsystem.digital.gov/documentation/settings/). It's a `unit`, so we can click on the `units` link and see all the available token values. For now, we're just going to use a basic unit of `1`.
 
     We'll also add some inner padding. We know this is thicker, so we'll double it and use a unit of `2`.
 
@@ -271,11 +277,13 @@ Our biggest resources in applying the design language will be:
 
 1. Next, let's add some typography styles. We know the quote itself is bigger than the other text elements.
 
-    Let's check the typography [settings page](https://designsystem.digital.gov/documentation/settings/#typography-settings-2) to see if there's a global theme setting that can help us create something cohesive and customizable by users.
+    Checking the [font size token page](https://designsystem.digital.gov/design-tokens/typesetting/font-size/) we see we have theme tokens available. They're set from `3xs` to `3xl` and we can use these names to easily communicate with others on our team.
 
-    We see there's a `lg` size token. The [size token docs](https://designsystem.digital.gov/design-tokens/typesetting/font-size/#using-size-tokens-2) say the function expects a family and size to be specified.
+    We see there's a `lg` size token. The table on the [size token docs](https://designsystem.digital.gov/design-tokens/typesetting/font-size/#using-size-tokens-2) show the function expects a family and size to be specified.
 
-    This is body text and the next level up from `md` is `lg`. We'll also remove the margin. For consistency, and to avoid any future confusion we'll stick to units too.
+    This is body text and the next level up from `md` is `lg`. That seems too small, so lets jump two levels to `xl`. Thanks to the system, the difference won't be jarring.
+
+    We'll also remove the margin. For consistency, and to avoid any future confusion we'll stick to units too.
 
     ```diff
     // _quote.scss
@@ -287,7 +295,7 @@ Our biggest resources in applying the design language will be:
     + }
     ```
 
-1. Next, lets add the quote marks. We don't want users to manually type them and we might not want them to be read by screen readers. Let's add as pseudoelements as a start.
+1. Next, lets add the quote marks. We don't want users to manually type them and we might not want them to be read by screen readers. As a start, let's add them as pseudoelements in CSS.
 
     <Aside type="danger">
       Consider cutting for time.
@@ -340,14 +348,14 @@ Our biggest resources in applying the design language will be:
 
     It's looking better, next lets look at the quote footer.
 
-1. The quotes are pretty big, so if our quote is `lg`, thanks to our design language we can jump  `3xl` for the quotes knowing that it'll look good.
+1. The quotes are pretty big, so try  `3xl` for the quotes.
 
     ```diff
     // _quote.scss
 
     // …
     .dg-quote__body {
-      font-size: size("body", "lg");
+      font-size: size("body", "xl");
 
       &::before,
       &::after {
@@ -358,27 +366,33 @@ Our biggest resources in applying the design language will be:
     }
     ```
 
-1. Let's quickly move the end quote over to the right.
 
 
-1. Next, lets add a border and some spacing to the footer.
+1. Next, lets use tokens for the border and spacing on the footer. The [color tokens page](https://designsystem.digital.gov/design-tokens/color) has three separate tokens listed: theme, state, and system.
+
+    <Aside type="tip">
+      Usually you'll want [theme](https://designsystem.digital.gov/design-tokens/color/theme-tokens/) tokens. Can you guess why this is better than system or state tokens?
+    </Aside>
 
     ```diff
     // _quote.scss
-    .dg-quote__footer {
-      border-top: 1px solid color("base-light");
-      border-block-start: 1px solid color("base-light");
-      padding-block-start: units(1);
-    }
+
+    // …
+
+    + .dg-quote__footer {
+    +   border-top: 1px solid color("base-light");
+    +   border-block-start: 1px solid color("base-light");
+    +   padding-block-start: units(1);
+    + }
     ```
 
 
 1. Now that we have our mobile styles more or less done, let's move up to tablet.
 
     Remember, the spacing units page had sizes like `tablet, tablet-lg, desktop, etc.`
-    It tells us the values, but for breakpoints the [settings page](https://designsystem.digital.gov/documentation/settings/#utilities-settings-2:~:text=includes%20all%20utilities.-,Utility%20breakpoints,-%24theme%2Dutility%2Dbreakpoints) or
-    the [layout grid utilities](https://designsystem.digital.gov/utilities/layout-grid/#responsive-variants-2) which
-    settings you have available by default.
+    It tells us the pixel values, but for breakpoints the [settings page](https://designsystem.digital.gov/documentation/settings/#utilities-settings-2:~:text=includes%20all%20utilities.-,Utility%20breakpoints,-%24theme%2Dutility%2Dbreakpoints) or
+    the [layout grid utilities](https://designsystem.digital.gov/utilities/layout-grid/#responsive-variants-2) shows which
+    breakpoints are available by default.
 
     There's a `tablet` breakpoint at `640px`, so let's start with that.
 
