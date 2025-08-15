@@ -8,15 +8,17 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 
 import WireframeQuote from "../../../assets/wireframe-quote.svg";
 
-In this exercise we're going to use USWDS to create a new, custom, component. By the end you should know how USWDS components are made so you can branch off of USWDS and create your own.
+Now that we've learned what design language is and how it helps us communicate the parts of a design, we're going to use USWDS to create a new, custom, component.
 
-Below we a mockup for a quote component. Although it may appear simple, we're going to apply system level thinking and USWDS design language to extend USWDS to create it.
+By the end you should know how USWDS components are made so you can branch off of USWDS and create your own.
+
+Below we have a mockup for a quote component. Although it may appear simple, we're going to apply system level thinking and USWDS design language to extend USWDS to create it.
 
 <WireframeQuote />
 
 ## Searching For Existing Components
 
-First, let's make sure we're not duplicating effort by checking to see if USWDS already offers something.
+First, let's make sure we're not duplicating effort by checking to see if USWDS already offers something similar.
 
 {/* prettier-ignore-start */}
 
@@ -58,20 +60,20 @@ It's important to think about:
 
 With those considerations in mind, let's start small and do our best to provide a "good" default that has:
 
-1. Top section for the quote which has:
-   1. A quote mark, either text or an icon
-   1. The quote itself
+1. Top section for the quote with:
+   1. A quote mark, either text or an icon.
+   1. The quote text itself.
 1. An (optional) bottom section for the author information which includes:
    1. A profile picture or image.
    1. A full name.
    1. The person's role or title.
 
-No matter the tech stack of your design system, we'll need to make sure we're using accessible, semantic, markup. We know there's a native [Blockquote element | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/blockquote), so we'll use as our foundation.
+No matter the tech stack of your design system, we'll need to make sure we're using accessible, semantic markup. We know there's a native [Blockquote element | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/blockquote), so we'll use that as our foundation.
 
 Our biggest resources in applying the design language will be:
 
 - The [USWDS Design Tokens page](https://designsystem.digital.gov/design-tokens/) to quickly reference the tokens we need.
-- The [Settings page](https://designsystem.digital.gov/documentation/settings/) to make sure we're following existing component patterns. For example, which tokens are currently used for existing components.
+- The [Settings page](https://designsystem.digital.gov/documentation/settings/) to make sure we're following existing component patterns. Basically, which tokens are currently used for existing components.
 
 Following these guidelines, we'll have a component that looks and feels like a USWDS component. Plus, we'll be able to contribute it back easily without too much re-work.
 
@@ -154,7 +156,7 @@ Following these guidelines, we'll have a component that looks and feels like a U
 
     For now, let's convert it to a generic `div` and update once we test in a screen reader, like VoiceOver.
 
-    We'll also add a class. We could either use `footer` or `meta`. In this case, we'll start with a generic approach (footer) and update as we iterate and test.
+    We'll also add a class. We could either use `footer` or `meta` (for metadata). In this case, we'll start with a generic approach (footer) and update as we iterate and test.
 
     ```diff
     <!-- quote.html.twig -->
@@ -168,25 +170,21 @@ Following these guidelines, we'll have a component that looks and feels like a U
     +  <div class="dg-quote__footer">
         <img src="/assets/quote-placeholder.svg" alt="" />
     -    <span>Jane Smith</span>
-    +    <div class="dg-quote__author-title">Jane Smith</div>
+    +    <div>Jane Smith</div>
     -    <span>Creative Director</span>
-    +    <div class="dg-quote__author-subtitle">Creative Director</div>
+    +    <div>Creative Director</div>
     -  </p>
     +  </div>
     </div>
     ```
 
-    <Aside type="note">
-      Notice how we didn't use `name` or `job title` for the class? We need to make sure we don't box ourselves in the future.
-    </Aside>
-
-1. We also know we'll need the image and text to be side-by-side. The Gov Banner has an example of this when you expand it.
+1. We'll need the image and text to be side-by-side. The Gov Banner has an example of this when you expand it.
 
     We could:
       1. **Write our own custom CSS**:
           1. We don't know how much CSS we'll need.
           1. We'll have to test it extensively at different screen sizes.
-          1. It's already similar to an existing pattern, so could cause confusion.
+          1. It's already similar to an existing pattern, so custom CSS could cause confusion.
           1. Plus, we'll be on the hook for maintaining it **forever**.
       1. **Use the [grid component](https://designsystem.digital.gov/utilities/layout-grid/) by including `usa-layout-grid`.** This is a heavy CSS file though, because it compiles responsive classes too, so avoid unless you'll be doing a lot of custom layouts.
       1. **Just use media block**, like in USA Banner. The downside is our markup might not be as clean, but this seems like the best start.
@@ -196,6 +194,8 @@ Following these guidelines, we'll have a component that looks and feels like a U
       <Aside type="tip">
         Media block isn't on the _official_ documentation, but we can see it in the [component library](https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.sites.pages.cloud.gov/preview/uswds/uswds/develop/?path=/story/components-media-block--media-block).
       </Aside>
+
+    We'll also add our BEM component classes to the child elements.
 
     ```diff
     <!-- quote.html.twig -->
@@ -219,7 +219,34 @@ Following these guidelines, we'll have a component that looks and feels like a U
     </div>
     ```
 
+    <Aside type="note">
+      Notice how we didn't use `name` or `job title` for the class? We need to make sure we don't box ourselves in the future.
+    </Aside>
+
     With the main structure set, let's start adding some basic styles and see how far we can get with the current iteration.
+
+    <details>
+      <summary>Final Markup</summary>
+
+      Your markup should look like this:
+
+      ```html
+      <div class="dg-quote">
+        <blockquote class="dg-quote__body">
+          <p>
+            Transforming Government Services with Digital and Human-Centered Solutions
+          </p>
+        </blockquote>
+        <div class="dg-quote__footer">
+          <div class="dg-quote__author usa-media-block">
+            <img src="/assets/quote-placeholder.svg" alt="" class="media-block__img" />
+            <div class="dg-quote__author-title">Jane Smith</div>
+            <div class="dg-quote__author-subtitle">Creative Director</div>
+          </div>
+        </div>
+      </div>
+      ```
+    </details>
 
 1. Before we add basic styles, resize your browser to `320px` or enable the mobile view in Storybook.
     It should be a square icon with two more lines to the top right of it.
