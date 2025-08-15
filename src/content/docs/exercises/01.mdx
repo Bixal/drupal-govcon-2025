@@ -38,22 +38,23 @@ In this exercise we'll see the importance of using [USWDS component packages](ht
     @forward "uswds-theme";
 
     @forward "uswds";
+
     ```
 
-1. In your terminal, run the component library.
+1. In your terminal, make sure the component library is running.
 
     ```sh
     # drupal-govcon-2025-demo ➜
     npm run lib
     ```
 
-1. Visit the documentation page.
+1. Visit the sample USWDS page template.
 
     ```sh
     http://localhost:6060/?path=/story/pages-landing--default
     ```
 
-    You should see the standard USWDS documentation page all styled and looking mostly good.
+    You should see the standard USWDS landing page template all styled and looking mostly good.
 
 1. Next, go back to your terminal and stop the task or open a new terminal tab and compile the styles.
 
@@ -71,7 +72,7 @@ In this exercise we'll see the importance of using [USWDS component packages](ht
                 - index-[a_random_hash].css # 565KB
     </FileTree>
 
-    If you open up finder and you'll see that the file weighs about `565KB`. Using the entire stylesheet without thinking about the components you'll use, like in the previous exercise, can be a heavy handed approach.
+    If you open up finder and you'll see that the file weighs about `565KB`. Using the entire USWDS stylesheet without thinking about the components you'll use, like in the previous exercise, can be heavy.
 
     Let's take a leaner approach by using USWDS component packages.
 </Steps>
@@ -95,12 +96,13 @@ In this exercise we'll see the importance of using [USWDS component packages](ht
 
     ```scss
     // ./storybook/index.scss
+
     @forward "uswds-theme";
 
     @forward "uswds";
     ```
 
-1. Remove the `@forward`.
+1. Remove the `@forward "uswds";`.
 
     ```diff
     // ./storybook/index.scss
@@ -116,12 +118,14 @@ In this exercise we'll see the importance of using [USWDS component packages](ht
     http://localhost:6060/?path=/story/pages-landing--default
     ```
 
-1. First, let's identify the components we have on the page.
+1. First, let's identify the components we have on the page. We have banner, hero, footer among others.
 
 1. Next we'll use the table in the [USWDS Packages docs](https://designsystem.digital.gov/components/packages/) and import what we need. Let's fix the Government Banner first.
 
     ```diff
     // ./storybook/index.scss
+
+    @forward "uswds-theme";
 
     + @forward "usa-banner";
     ```
@@ -188,7 +192,9 @@ In this exercise we'll see the importance of using [USWDS component packages](ht
     npm run build:vite -w storybook
     ```
 
-    The `index.css` file should be `149KB` now, saving _416KB_ from our original. Not only do you get faster builds and leaner styles, but now you're setup to be able to extend!
+    The `index.css` file should be `149KB` now, saving _416KB_ from our original.
+
+    Not only do you get faster builds and leaner styles, but now you're setup to be able to extend USWDS!
 </Steps>
 
 {/* prettier-ignore-end */}
