@@ -14,23 +14,28 @@ In this exercise we'll see the importance of using [USWDS component packages](ht
 {/* prettier-ignore-start */}
 
 <Steps>
-1. If you're new to USWDS you've probably seen the styles being loaded like so:
+1. If you're new to USWDS you've probably seen the styles being loaded like in the example below:
 
     ```scss
     // your-styles-entrypoint.scss
 
-    // The entire USWDS styles.
+    // Your custom theme.
+    @forward "uswds-theme";
+
+    // USWDS styles.
     @forward "uswds";
 
     // Your custom project styles.
     @forward "your-project-styles";
     ```
 
-1. You can see this in action in the demo repo:
+1. You can see this in the demo repo:
 
 
     ```scss
     // ./storybook/packages/index.scss
+
+    @forward "uswds-theme";
 
     @forward "uswds";
     ```
