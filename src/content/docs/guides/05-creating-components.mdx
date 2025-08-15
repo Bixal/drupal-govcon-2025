@@ -29,9 +29,9 @@ Knowing how a UI component evolves is key to creating a design system that lasts
 
 #### Research and Why It's Important
 
-Research is a critical step in ensuring that your components meet the user's needs and are aligned with business goals.
+Research is a critical step in ensuring that your components meet users' needs and are aligned with business goals.
 
-- **Landscape Analysis**: Look at existing solutions to understand best practices and spot gaps. Analyzing competitors helps you save time and resources and guiding more informed decisions. This is especially important when working with a new tool or tech stack.
+- **Landscape Analysis**: Look at existing solutions to understand best practices and spot gaps. Analyzing competitors helps you save time and resources and guides more informed decisions. This is especially important when working with a new tool or tech stack. Build from what others have learned.
 - **Accessibility Analysis**: Look for any potential accessibility issues that might make your component hard to use. Check the relevant WCAG criteria to make sure everyone can use your components.
 - **User Testing**: Conduct usability tests to understand user needs and behaviors, including participants with disabilities. This helps in designing components that are intuitive and user-friendly.
 - **Gather Feedback**: Gather feedback from stakeholders and end-users to guide component decisions and validate success.
@@ -45,7 +45,7 @@ At this point a decision needs to be made to whether you really need a new compo
 
 #### Progressive Design Modeling
 
-Use principles from a progressive design modeling approach when developing components, where the fidelity or resolution of design deliverables increases as the task progresses (rough sketches → wireframes → prototypes → final product). This will allow smaller assessments from other team members and stakeholders, and will help to ensure that the design is on track before moving to the next phase.
+Use principles from a progressive design modeling approach when developing components, where the fidelity or resolution of design deliverables increases as the task progresses (rough sketches → wireframes → prototypes → final product). Smaller reviews from other team members and stakeholders will help catch problems early and keep the design on track before moving forward.
 
 - **Initial Sketches and Wireframes**: Start with low-fidelity sketches and wireframes to conceptually outline the component.
 - **Mid-Fidelity Prototypes**: Progress to mid-fidelity prototypes to explore interaction and user flow.
@@ -79,24 +79,29 @@ At this stage the development team should have already been reviewing and maybe 
 Define the component API and ensure it is flexible and customizable.
 
 - **Component Structure**: Define the structure of the component, including its props, state, and lifecycle methods.
-- **Clear and Consistent API**: Ensure the API is clear and consistent.
-- **Customization**: Identify the strategy for level of customization and extensibility. Provide hooks or props to allow for customization.
+- **Clear and Consistent API**: Make sure the API is easy to understand and is consistent.
+- **Customization**: Identify the strategy for level of customization and extensibility. Provide hooks or props to allow for customization. For example, CSS Custom Properties.
 - **Organize Components**: Organize components in a way that promotes reusability and discoverability within the component library.
 
+{/* prettier-ignore-start */}
+
 <Card title="Anatomy of a USWDS Component" icon="seti:smarty">
-  A well-designed component should be consistent, reusable, and maintainable. -
-  **Structure**: Components should be modular and easily integrated with other
-  parts of the design system. - **Props**: Define a clear API with
-  well-documented props and modifiers. - **Documentation**: Provide
-  comprehensive documentation, including usage examples, props tables, and
-  design guidelines.
+  A well-designed component should be consistent, reusable, and maintainable.
+
+  - **Structure**: Components should be modular and easily integrated with other
+  parts of the design system.
+  - **Props**: Define a clear API with
+  well-documented props and modifiers.
+  - **Documentation**: Provide comprehensive documentation, including usage examples, props tables, and design guidelines.
 </Card>
+
+{/* prettier-ignore-end */}
 
 #### Testing
 
-Implement robust testing strategies to ensure the quality and reliability of your components. Robust use of automation will ensure that components are tested thoroughly and consistently over time.
+Test your components regularly and use automated tools to make sure they work well and are reliable.
 
-- **Unit Testing**: Verify the functionality of individual components using tools like Jest or React Testing Library.
+- **Unit Testing**: Use tools like Vitest, Jest, or React Testing Library to check that each component works as it should.
 - **Integration Testing**: Ensure components work together seamlessly using tools like Cypress.
 - **Accessibility Testing**: Use tools like Axe to ensure your components are accessible to all users.
 - **Visual Regression Testing**: Use tools like Chromatic to catch visual changes and ensure design consistency.
@@ -118,7 +123,7 @@ Get everyone on the same page before releasing the new component. Understand how
 
 - **Communicate the Addition**: Ensure clear communication with all stakeholders, including designers, developers, and product managers, and planned communication to end users.
 - **Coordination**: Schedule a coordinated release where all teams are aligned and prepared for the new component. This approach is useful when the component requires significant changes across multiple products or resources.
-- **Feature Flag Release vs Full Release**: Determine if you want to launch the component to all users at once or use a feature flag to roll out the component gradually. (Feature flag releases allow you to gather feedback and make adjustments as needed before a full release.)
+- **Feature Flag Release vs Full**: Determine if you want to launch the component to all users at once or use a feature flag to roll out the component gradually. (Feature flag releases allow you to gather feedback and make adjustments as needed before a full release.)
 - **Feedback Loop**: Ensure a mechanism for feedback to collect user and stakeholder feedback on the component as it's being used.
 
 ### 6. Maintenance

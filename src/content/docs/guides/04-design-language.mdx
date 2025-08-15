@@ -27,7 +27,7 @@ The building blocks of a design language are colors, typography, spacing, icons,
 
 Create a color system based on your brand (blues, grays, reds, greens, etc.). From that, create grades for each color from 0 to 100.
 
-Then create a primary color palette (primary, accent, secondary, base). Use these to define component and state colors, and to ensure accessible combinations.
+Then create a main color palette (primary, accent, secondary, base, etc.). Use these colors to ensure accessible combinations. Then apply them to component and state colors.
 
 If you're using USWDS as a foundation, you already have an accessible color system and can create accessible color palettes with [system color tokens](https://designsystem.digital.gov/design-tokens/color/system-tokens/).
 
@@ -40,11 +40,11 @@ Token breakdown (using USWDS as an example):
 2. **Semantic token**: `'blue-warm-60v'`
 
 3. **Semantic theme and state tokens:**
-   1. Theme: `primary-vivid`
-   2. State: `success`
-   3. Component: `banner-background-color`
+   - **Theme token**: `primary-vivid`
+   - **State:** `success`
+   - **Component:** `banner-background-color`
 
-   It's a delicate balance to know which one to use and when. Use theme tokens as much as you can so users can easily make high-level changes without having to override multiple smaller settings.
+   Choosing the right type of token can be tricky. Use theme tokens whenever possible to keep the design consistent. It also gives users the ability to make high-level changes without having to adjust multiple smaller details.
 
 </Steps>
 
@@ -53,7 +53,7 @@ Token breakdown (using USWDS as an example):
 Typography covers font sizes, weights, line spacing, and line width (measure). Choose clear, readable typefaces that work well together in a variety of scenarios, like:
 
 - Headings
-- Long form content
+- Long-form content
 - UI elements
 - Tabular data
 - Quotes, small text, and emphasis
@@ -72,14 +72,14 @@ Like colors, primitives are then reused in theme tokens. For example:
 2. **Semantic token**: `'system'`
 
 3. **Semantic theme tokens:**
-   - Type based: `sans`
-   - Role based : `ui`
+   - **Type based:** `sans`
+   - **Role based:** `ui`
 
 </Steps>
 
 ### Spacing
 
-Spacing includes margins, padding, and layout/grid systems. Consistent spacing makes layouts clean and familiar. Having a system for spacing is important to have a cohesive design.
+Spacing includes margins, padding, and layout or grid systems. Consistent spacing makes layouts clean and familiar. Having a system for spacing is important to have a cohesive design.
 
 USWDS is based on multiples of `8px`, but others could be more fine-grained, like systems of `3px`. For smaller sizes and fine-grained control, it's important to include half-sizes.
 
@@ -89,15 +89,15 @@ Here's an example of a potential hierarchy of spacing tokens:
 
 1. **Primitive spacing tokens:** `4px`, `8px`, `12px`, `16px`, `32px`.
 
-2. **Semantic tokens**: `1`, `mobile-lg`.
+2. **Semantic tokens**: `0.5`, `1`, `1.5`, `2`, `mobile-lg`.
 
-3. **Semantic theme tokens:** In components, spacing is set in theme variables:
+3. **Theme tokens:** In components, spacing is set in theme variables that map to semantic tokens, so for example:
 
    ```scss
    $theme-banner-max-width: "desktop";
    ```
 
-   Which users can override in component theme settings.
+   This lets users override in component theme settings. You can immediately tell what it's doing.
 
 </Steps>
 
@@ -107,7 +107,7 @@ States describe how elements look and behave when users interact. This includes 
 
 ### Icons
 
-Icons are visual cues for actions, navigation, or status. Apply icons consistently and keep them consistent in style, stroke width, and size. Use icons to support text—not replace it!
+Icons are visual cues for actions, navigation, or status. Apply icons consistently and keep them consistent in style, stroke width, and size. **Use icons to support text—not replace it!**
 
 ### Tone of Voice
 
