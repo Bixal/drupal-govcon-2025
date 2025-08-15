@@ -137,20 +137,20 @@ In this exercise we'll see the importance of using [USWDS component packages](ht
     <details>
       <summary>Solution</summary>
 
-      Your index file should look like this:
+      The following components should be included:
 
-      ```scss
+      ```diff
       // ./storybook/index.scss
 
-      @forward "usa-accordion";
-      @forward "usa-banner";
-      @forward "usa-button";
-      @forward "usa-skipnav";
-      @forward "usa-header";
-      @forward "usa-hero";
-      @forward "usa-section";
-      @forward "usa-footer";
-      @forward "usa-identifier";
+      + @forward "usa-accordion";
+      + @forward "usa-banner";
+      + @forward "usa-button";
+      + @forward "usa-skipnav";
+      + @forward "usa-header";
+      + @forward "usa-hero";
+      + @forward "usa-section";
+      + @forward "usa-footer";
+      + @forward "usa-identifier";
       ```
     </details>
 
@@ -172,6 +172,8 @@ In this exercise we'll see the importance of using [USWDS component packages](ht
       ```scss
       // ./storybook/index.scss
 
+      @forward "uswds-theme";
+
       @forward "usa-accordion";
       @forward "usa-banner";
       @forward "usa-button";
@@ -181,6 +183,9 @@ In this exercise we'll see the importance of using [USWDS component packages](ht
       @forward "usa-section";
       @forward "usa-footer";
       @forward "usa-identifier";
+
+      @forward "uswds-global";
+      @forward "uswds-typography";
       ```
     </details>
 
