@@ -255,12 +255,14 @@ Following these guidelines, we'll have a component that looks and feels like a U
       Mobile-first not only ensures our component looks good everywhere, but this `320px` also covers the WCAG 2.1 AA criteria for reflow!
     </Aside>
 
-1. In your editor, open the SCSS partial `_quote.scss`. We'll definitely need USWDS tokens, so lets add that first.
+1. Go to the `_quote.scss` SCSS partial. We'll definitely need USWDS tokens, so lets add that first.
 
     ```diff
     // _quote.scss
 
     + @use "uswds-core" as *;
+
+    // …
     ```
 
     <Aside type="caution">
@@ -281,9 +283,34 @@ Following these guidelines, we'll have a component that looks and feels like a U
     + }
     ```
 
-    You should see a gray background on the component or a successful compile in your terminal.
+1. Next, lets add the component to our `index.scss` so we can see changes.
 
-1. In this step, we'll be adding minimal [spacing tokens].
+    ```diff
+    // storybook/packages/index.scss
+
+    @forward "uswds-theme";
+
+    @forward "usa-accordion";
+    @forward "usa-banner";
+    @forward "usa-button";
+    @forward "usa-skipnav";
+    @forward "usa-header";
+    @forward "usa-hero";
+    @forward "usa-section";
+    @forward "usa-footer";
+    @forward "usa-identifier";
+
+    @forward "uswds-global";
+    @forward "uswds-typography";
+
+    + @forward "components/quote/quote";
+    ```
+
+    You should see a gray background on the component.
+
+1. In this step, we'll start adding tokens.
+
+    First we'll update our gray to use the theme base color.
 
     You can see how other components set radius in the [USWDS Settings page](https://designsystem.digital.gov/documentation/settings/). It's a `unit`, so we can click on the `units` link and see all available unit token values. Let's start with a basic unit of `1`.
 
@@ -296,7 +323,8 @@ Following these guidelines, we'll have a component that looks and feels like a U
     ```diff
     // _quote.scss
     .dg-quote {
-      background-color: color("gray-20");
+    -  background-color: color("gray-20");
+    +  background-color: color("base");
     +  border-radius: units(1);
     +  padding: units(2);
     }
@@ -306,9 +334,7 @@ Following these guidelines, we'll have a component that looks and feels like a U
 
     Checking the [font size token page](https://designsystem.digital.gov/design-tokens/typesetting/font-size/) we see we have theme tokens available. They're set from `3xs` to `3xl` and we can use these names to easily communicate with others on our team.
 
-    We see there's a `lg` size token. The table on the [size token docs](https://designsystem.digital.gov/design-tokens/typesetting/font-size/#using-size-tokens-2) show the function expects a family and size to be specified.
-
-    This is body text and the next level up from `md` is `lg`. That seems too small, so lets jump two levels to `xl`. Thanks to the system, the difference won't be jarring.
+    The table on the [size token docs](https://designsystem.digital.gov/design-tokens/typesetting/font-size/#using-size-tokens-2) show the function expects a family and size to be specified.
 
     We'll also remove the margin. For consistency, and to avoid any future confusion we'll stick to units too.
 
@@ -317,78 +343,50 @@ Following these guidelines, we'll have a component that looks and feels like a U
 
     // …
     + .dg-quote__body {
-    +   font-size: size("body", "xl");
+        // …
+    +   font-size: size("body", "md");
     +   margin: units(0);
+
+        // …
     + }
     ```
 
-1. Next, lets add the quote marks. We don't want users to manually type them and we might not want them to be read by screen readers. As a start, let's add them as pseudoelements in CSS.
+1. Before we move on take a look at the CSS for the quote marks. We have them as pseudoelements in CSS.
 
-    <Aside type="danger">
-      Consider cutting for time.
-    </Aside>
+    We don't want users to manually type them and we might not want them to be read by screen readers.
 
     <Aside type="note">
       The use of pseudoelement quotes is something we'll definitely have to be aware of during accessibility testing.
     </Aside>
 
-    <Aside type="danger">
-      Explain the use of CSS quotes over SVG quotes.
+    1. What are the tradeoffs?
+        - Will look off if custom font has weird looking quotes.
+        - It's not easy for user to change to some other quote style, like outline quotes or some other aesthetic.
+    1. What's the benefit to the user?
+        - Quotes are included with font, so no additional download.
+        - Using icons requires more markup, which increases maintenance, the burden to the user and more chance for risk (we want it to be easy to implement).
+        - The icons change color along with the font, so it'll stay more or less in sync with little to no effort.
 
-      1. Why did we go this route?
-        1. What are the tradeoffs?
-          - Risk if custom font has weird looking quotes
-          - Not easy for user to change to some other style, like outline quotes or some other aesthetic.
-        1. What's the benefit to the user?
-            - Quotes included with font, so no additional download
-            - Using icons requires more markup, which increases maintenance, the burden to the user and more chance for risk (we want it to be easy to implement)
-            - The icons change color along with the font, so it'll stay more or less in sync with little to no effort
-    </Aside>
-
-    ```diff
-    // _quote.scss
-
-    // …
-    .dg-quote__body {
-      font-size: size("body", "xl");
-
-    +  &::before,
-    +  &::after {
-    +    content: "";
-    +    display: block;
-    + }
-
-    +  &::before {
-    +    content: "\201C";
-    + }
-
-    +  &::after {
-    +    content: "\201D";
-    +    text-align: end;
-    + }
-    }
-    ```
 
     <Aside type="tip">
     The CSS codes are from [Toptal](https://www.toptal.com/designers/htmlarrows/punctuation/right-double-quotation-mark/).
     </Aside>
 
-    It's looking better, next lets look at the quote footer.
 
-1. The quotes are pretty big, so try  `3xl` for the quotes.
+1. The quotes are pretty big, so try  `xl` for the quotes.
 
     ```diff
     // _quote.scss
 
     // …
     .dg-quote__body {
-      font-size: size("body", "xl");
+      font-size: size("body", "md");
 
       &::before,
       &::after {
         content: "";
         display: block;
-    +    font-size: size("body", "3xl");
+    +    font-size: size("body", "xl");
       }
     }
     ```
@@ -413,6 +411,69 @@ Following these guidelines, we'll have a component that looks and feels like a U
     + }
     ```
 
+1. Finally lets adjust the author information.
+
+    ```diff
+    // _quote.scss
+
+    // …
+
+    + .dg-quote__author {
+    +   align-items: center;
+    +   column-gap: units(2);
+    + }
+    ```
+
+    <details>
+      <summary>Styles so far</summary>
+
+      Your styles should look like this:
+
+      ```scss
+      // _quote.scss
+
+      @use "uswds-core" as *;
+
+      .dg-quote {
+        background-color: color("gray-20");
+        border-radius: units(1);
+        padding: units(2);
+      }
+
+      .dg-quote__body {
+        --left-quote: "\201C";
+        --right-quote: "\201D";
+        font-size: size("body", "md");
+
+        &::before,
+        &::after {
+          content: "";
+          display: block;
+          font-size: size("body", "xl");
+        }
+
+        &::before {
+          content: var(--left-quote);
+        }
+
+        &::after {
+          content: var(--right-quote);
+        }
+      }
+
+      .dg-quote__footer {
+        border-top: 1px solid color("base-light");
+        border-block-start: 1px solid color("base-light");
+        padding-block-start: units(1);
+      }
+
+      .dg-quote__author {
+        align-items: center;
+        column-gap: units(2);
+      }
+
+      ```
+    </details>
 
 1. Now that we have our mobile styles more or less done, let's move up to tablet.
 
@@ -478,6 +539,79 @@ Following these guidelines, we'll have a component that looks and feels like a U
     +  }
     }
     ```
+
+    Our component is looking pretty good. Feel free to add any additional touches.
+
+    <details>
+      <summary>Final stylesheet</summary>
+
+      Your styles should look like this:
+
+      ```scss
+      // _quote.scss
+
+      @use "uswds-core" as *;
+
+      .dg-quote {
+        background-color: color("base");
+        border-radius: units(1);
+        padding: units(2);
+
+        @include at-media("tablet") {
+          padding: units(3) units(6);
+        }
+      }
+
+      .dg-quote__body {
+        --left-quote: "\201C";
+        --right-quote: "\201D";
+
+        display: grid;
+        grid-template-columns: 1ch 3fr 1ch;
+        text-align: center;
+
+        font-size: size("body", "md");
+
+        @include at-media("tablet") {
+          font-size: size("body", "xl");
+          padding-block-end: units(2);
+        }
+
+        &::before,
+        &::after {
+          content: "";
+          display: block;
+          font-size: size("body", "xl");
+          width: 1ch;
+        }
+
+        &::before {
+          content: var(--left-quote);
+        }
+
+        &::after {
+          content: var(--right-quote);
+          align-self: end;
+        }
+      }
+
+      .dg-quote__footer {
+        border-top: 1px solid color("base-light");
+        border-block-start: 1px solid color("base-light");
+        padding-block-start: units(1);
+
+        @include at-media("tablet") {
+          font-size: size("body", "md");
+          padding-block-start: units(2);
+        }
+      }
+
+      .dg-quote__author {
+        align-items: center;
+        column-gap: units(2);
+      }
+      ```
+    </details>
 </Steps>
 
 {/* prettier-ignore-end */}
