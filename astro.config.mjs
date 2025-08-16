@@ -2,6 +2,8 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
+const GAID = "G-VJ35C5WR1G";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -15,6 +17,21 @@ export default defineConfig({
             name: "og:image",
             content: "/og-image.jpg",
           },
+        },
+        {
+          tag: "script",
+          attrs: {
+            src: `https://www.googletagmanager.com/gtag/js?id=${GAID}`,
+            async: true,
+          },
+        },
+        {
+          tag: "script",
+          content: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GAID}');`,
         },
       ],
       components: {
