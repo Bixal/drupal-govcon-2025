@@ -8,6 +8,15 @@ export default defineConfig({
     starlight({
       title: "Branching Out: Design Systems",
       customCss: ["./src/styles/custom.css"],
+      head: [
+        {
+          tag: "meta",
+          attrs: {
+            name: "og:image",
+            content: "/og-image.jpg",
+          },
+        },
+      ],
       components: {
         PageFrame: "./src/components/PageFrame.astro",
       },
