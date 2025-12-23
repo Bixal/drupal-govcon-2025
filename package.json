@@ -12,12 +12,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "0.36.1",
-    "astro": "5.15.1",
-    "sharp": "0.34.4"
+    "@astrojs/starlight": "0.37.1",
+    "astro": "5.16.6",
+    "sharp": "0.34.5"
   },
   "devDependencies": {
-    "lefthook": "2.0.0",
-    "prettier": "3.6.2"
+    "lefthook": "2.0.12",
+    "prettier": "3.7.4"
   }
 }
