@@ -88,7 +88,7 @@ export default defineConfig({
         },
         {
           label: "Templates",
-          autogenerate: { directory: "templates" },
+          items: [{ autogenerate: { directory: "templates" } }],
         },
       ],
     }),
