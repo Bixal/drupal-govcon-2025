@@ -1,3 +1,5 @@
+Archived - This project repo is no longer being maintained.
+
 # Branching Out: Create & maintain your own design system
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
